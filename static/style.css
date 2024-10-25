@@ -1,0 +1,137 @@
+:root {
+    --color-accent: oklch(65% 50% 0); /* Define your accent color here */
+    --color-accent-light: oklch(65% 95% 5%); /* Light color with the same hue */
+}
+
+body {
+    font: 100%/1.5 system-ui;
+    max-width: 100ch; 
+    margin-inline: auto;
+    padding: 1rem; 
+}
+
+nav {
+    display: flex; /* Enable Flexbox for the navigation */
+    margin-bottom: 1rem; /* Spacing below the nav */
+    border-bottom: 1px solid oklch(80% 3% 200); /* Bottom border */
+    position: relative; /* Set position to relative for the indicator */
+}
+
+nav a {
+    flex: 1; /* Make each <a> take equal space */
+    padding: 0.5em; /* Spacing inside links */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the same color as the parent */
+    text-align: center; /* Center text in each link */
+    background-color: var(--color-accent-light); /* Light background color */
+    position: relative; /* Set position to relative */
+}
+
+nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent); /* Use accent color for bottom border */
+}
+
+nav a.current {
+    background-color: gray; /* added
+    color: white; /* added
+    font-weight: bold; /* Make the current page link bold */
+    border-bottom: 0.4em solid oklch(80% 3% 150); /* Thick bottom border */
+    padding-bottom: 0.5em; /* Reduced bottom padding to counter the height increase */
+}
+
+.current-page-indicator {
+    height: 5px; /* Height of the bar */
+    background-color: grey; /* Color of the bar */
+    width: 100%; /* Full width indicator */
+    position: absolute; /* Position the bar absolutely */
+    top: 0; /* Align with top of the nav */
+    left: 0; /* Align to left */
+    transition: width 0.3s, left 0.3s; /* Smooth transition for width and left */
+}
+
+.contact-form form {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: auto 1fr; /* Two columns: labels take width of content, inputs take remaining space */
+    gap: 1em; /* Add spacing between form controls */
+}
+
+.contact-form label {
+    display: block; /* Make labels behave like block elements */
+    margin-block: 0.5rem; /* Add spacing above and below labels */
+}
+
+.contact-form input, 
+.contact-form textarea, 
+.contact-form button {
+    display: block; /* Make form controls block elements */
+    width: 100%; /* Make inputs full width */
+    box-sizing: border-box; /* Include padding and borders in the element's total width */
+}
+
+.contact-form button {
+    grid-column: 1 / -1; /* Make the button span both columns */
+    margin-top: 1rem; /* Add some space above the button */
+}
+
+.projects {
+    display: grid; /* Make the .projects container a grid */
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Responsive columns */
+    gap: 1.5em; /* Space between grid items */
+    margin-bottom: 2em; /* Space below the projects section */
+}
+
+/* CV Header Styling */
+.cv-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cv-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.cv-header p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* CV Section Styling */
+.cv-section {
+    margin-bottom: 2rem;
+}
+
+.cv-section h2 {
+    font-size: 1.8em;
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent-light);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Job/Experience Styling */
+.cv-job {
+    margin-bottom: 1.5rem;
+}
+
+.cv-job h3 {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.cv-job p {
+    font-size: 1.1em;
+    margin: 0.2rem 0;
+}
+
+.cv-job .date {
+    font-style: italic;
+    color: #777;
+}
+
+/* List Styling */
+ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
