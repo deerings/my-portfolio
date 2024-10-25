@@ -1,3 +1,13 @@
+<script>
+    const projects = Array.from(document.querySelectorAll('.projects > article')).map((a) => ({
+      title: a.querySelector('h2').textContent,
+      image: a.querySelector('img').getAttribute('src'),
+      description: a.querySelector('p').textContent,
+    }));
+  
+    console.log(projects); // This will log the extracted project data
+</script>
+
 <svelte:head>
   <title>Curriculum Vitae</title>
 </svelte:head>

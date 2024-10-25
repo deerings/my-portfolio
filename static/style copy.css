@@ -13,7 +13,7 @@ body {
 nav {
     display: flex; /* Enable Flexbox for the navigation */
     margin-bottom: 1rem; /* Spacing below the nav */
-    border-bottom: 2px solid oklch(80% 3% 200); /* Bottom border */
+    border-bottom: 1px solid oklch(80% 3% 200); /* Bottom border */
     position: relative; /* Set position to relative for the indicator */
 }
 
