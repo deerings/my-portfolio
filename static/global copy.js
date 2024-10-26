@@ -10,13 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
     let pages = [
-    { url: '', title: 'Home' },
-    { url: 'projects', title: 'Projects' },
-    { url: 'contact', title: 'Contact' },
-    { url: 'cv', title: 'CV' },
-    { url: 'https://www.github.com/deerings', title: 'Github' },
+        { url: '', title: 'Home' },
+        { url: 'projects', title: 'Projects' },
+        { url: 'contact', title: 'Contact' },
+        { url: 'cv', title: 'CV' },
+        { url: 'https://www.github.com/deerings', title: 'Github', /*target: '_blank'*/ }
     ];
-
+    
     let nav = document.createElement('nav');
     document.body.prepend(nav);
 
