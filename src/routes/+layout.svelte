@@ -1,29 +1,34 @@
 <script>
-    import { page } from '$app/stores';
-    /* import '../style.css'; // Importing global CSS */
+  import { page } from '$app/stores';
 
-    let pages = [
-        { url: './', title: 'Home' },
-        { url: 'projects', title: 'Projects' },
-        { url: 'contact', title: 'Contact' },
-        { url: 'cv', title: 'CV' },
-        { url: 'https://www.github.com/deerings', title: 'Github' },
-    ];
+  let pages = [
+      { url: '/', title: 'Home' },
+      { url: '/projects', title: 'Projects' },
+      { url: '/contact', title: 'Contact' },
+      { url: '/cv', title: 'CV' },
+      { url: 'https://www.github.com/deerings', title: 'Github', external: true }, // Mark this link as external
+  ];
 </script>
 
 <nav>
-    {#each pages as p}
-      <a href={p.url} class={ $page.url.pathname === p.url ? 'active' : '' }>
+  {#each pages as p}
+    {#if p.external} <!-- Check if the link is external -->
+      <a href={p.url} target="_blank" rel="noopener noreferrer" class={$page.url.pathname === p.url ? 'active' : ''}>
         {p.title}
       </a>
-    {/each}
+    {:else}
+      <a href={p.url} class={$page.url.pathname === p.url ? 'active' : ''}>
+        {p.title}
+      </a>
+    {/if}
+  {/each}
 </nav>
 
 <style>
-  .active {
-      font-weight: bold;
-      color: blue; /* Customize as needed */
-  }
+.active {
+    font-weight: bold;
+    color: blue; /* Customize as needed */
+}
 </style>
 
 <slot></slot> <!-- Render child components/pages -->
