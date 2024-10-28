@@ -2,6 +2,7 @@
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
 
+  const basePath = '/my-portfolio';
   let colorScheme;
 
   // Function to apply and save the color scheme
@@ -36,22 +37,11 @@
 </label>
 
 <nav>
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <a href="#/" class={$page.url.pathname === '/' ? 'active' : ''}>Home</a>
-  <a href="#/projects" class={$page.url.pathname === '/projects' ? 'active' : ''}>Projects</a>
-  <a href="#/contact" class={$page.url.pathname === '/contact' ? 'active' : ''}>Contact</a>
-  <a href="#/cv" class={$page.url.pathname === '/cv' ? 'active' : ''}>CV</a>
+  <a href={`${basePath}/#/`} class={$page.url.hash === '#/' ? 'active' : ''}>Home</a>
+  <a href={`${basePath}/#/projects`} class={$page.url.hash === '#/projects' ? 'active' : ''}>Projects</a>
+  <a href={`${basePath}/#/contact`} class={$page.url.hash === '#/contact' ? 'active' : ''}>Contact</a>
+  <a href={`${basePath}/#/cv`} class={$page.url.hash === '#/cv' ? 'active' : ''}>CV</a>
   <a href="https://www.github.com/deerings" target="_blank" rel="noopener noreferrer">Github</a>
-=======
-=======
->>>>>>> parent of 482fda4 (removed hash, lets see if it works now)
-    <a href="#/" class={$page.url.pathname === '/' ? 'active' : ''}>Home</a>
-    <a href="#/projects" class={$page.url.pathname === '/projects' ? 'active' : ''}>Projects</a>
-    <a href="#/contact" class={$page.url.pathname === '/contact' ? 'active' : ''}>Contact</a>
-    <a href="#/cv" class={$page.url.pathname === '/cv' ? 'active' : ''}>CV</a>
-    <a href="https://www.github.com/deerings" target="_blank" rel="noopener noreferrer">Github</a>
->>>>>>> parent of 482fda4 (removed hash, lets see if it works now)
 </nav>
 
 <style>
