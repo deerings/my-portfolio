@@ -1,21 +1,22 @@
 [
 	{
-		"title": "Project 1",
+		
+		"title": "DSC 209R Project 2: Deceptive Visualization ",
 		"year": "2024",
 		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "."
+		"description": "This was my second project for DSC209R. It involved creating an Earnest and Deceptive visualization. I chose to use traffic stop data for the city of San Diego."
 	},
 	{
-		"title": "Architecto minima sed omnis?",
+		"title": "DSC 209R Project 1: Expository Visualization",
 		"year": "2024",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Est, reiciendis aspernatur debitis maxime et itaque animi sit quod quo, tempore incidunt tempora dignissimos exercitationem enim numquam quam quaerat optio laborum ut unde hic delectus laboriosam? Quasi, cupiditate corporis."
+		"image": "https://deerings.github.io/my-portfolio/static/images/Project1.png",
+		"description": "This was my first project for DSC 209R, which involved designing a single static visualization to effectively communicate an idea about climate data in major US Cities."
 	},
 	{
-		"title": "Asperiores rem repellendus doloremque.",
-		"year": "2024",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Eligendi tenetur quae quos recusandae est. Cumque, voluptatem. Quo nihil dignissimos molestiae explicabo praesentium aspernatur debitis, illo rerum possimus quam ducimus earum nulla officiis maiores itaque repellat corporis soluta labore?"
+		"title": "DSC 207R Final Project: Machine Learning on NHL Hockey Data",
+		"year": "2023",
+		"image": "https://deerings.github.io/my-portfolio/static/images/hockey.png",
+		"description": "Research Questions: a) Can we identify features that are correlated with game outcome (win/loss) at the player or team level? b) Can we use an ML Regression model to predict goals scored in a season based on goals scored by players in their previous 2 seasons? and c) Can we use an ML Classification model to predict wins and losses?"
 	},
 	{
 		"title": "Laudantium reprehenderit placeat perspiciatis.",

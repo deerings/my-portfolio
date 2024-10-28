@@ -1,7 +1,11 @@
 <script>
-    import projects from '$lib/projects.json';
-    import Project from '$lib/Project.svelte';
-  </script>
+  let root = document.documentElement;
+  let colorScheme = localStorage.colorScheme ?? 'light dark';
+  root.style.setProperty('color-scheme', colorScheme);
+
+  import projects from '$lib/projects.json';
+  import Project from '$lib/Project.svelte';
+</script>
   
   <svelte:head>
     <title>Projects</title>
