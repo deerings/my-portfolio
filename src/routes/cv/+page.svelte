@@ -1,16 +1,21 @@
 <script>
+    let root = document.documentElement;
+    let colorScheme = localStorage.colorScheme ?? 'light dark';
+    root.style.setProperty('color-scheme', colorScheme);
+
     const projects = Array.from(document.querySelectorAll('.projects > article')).map((a) => ({
       title: a.querySelector('h2').textContent,
       image: a.querySelector('img').getAttribute('src'),
       description: a.querySelector('p').textContent,
     }));
   
-    console.log(projects); // This will log the extracted project data
+    console.log(projects); /* This will log the extracted project data */
 </script>
 
 <svelte:head>
   <title>Curriculum Vitae</title>
 </svelte:head>
+
 <header class="cv-header">
     <h1>Curriculum Vitae</h1>
 

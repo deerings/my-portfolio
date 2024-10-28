@@ -19,7 +19,7 @@ nav {
 
 nav a {
     flex: 1; /* Make each <a> take equal space */
-    padding: 0.5em; /* Spacing inside links */
+    padding: 0.4em; /* Spacing inside links */
     text-decoration: none; /* Remove underline */
     color: inherit; /* Use the same color as the parent */
     text-align: center; /* Center text in each link */
@@ -32,22 +32,22 @@ nav a:hover {
 }
 
 nav a.current {
-    background-color: gray; /* added
-    color: white; /* added
+    background-color: gray; /* added */
+    color: white; /* added */
     font-weight: bold; /* Make the current page link bold */
     border-bottom: 0.4em solid oklch(80% 3% 150); /* Thick bottom border */
-   /* padding-bottom: 0.5em; Reduced bottom padding to counter the height increase */
+    padding-bottom: 0.4em; /* Reduced bottom padding to counter the height increase */
 }
 
 .current-page-indicator {
     height: 5px; /* Height of the bar */
     background-color: grey; /* Color of the bar */
     width: 100%; /* Full width indicator */
-    position: absolute; /* Position the bar absolutely */
+    position: relative; /* Position the bar absolutely */
     top: 0; /* Align with top of the nav */
     left: 0; /* Align to left */
     transition: width 0.3s, left 0.3s; /* Smooth transition for width and left */
-}
+} 
 
 .contact-form form {
     display: grid; /* Enable grid layout */
@@ -81,13 +81,13 @@ nav a.current {
 }
 
 /* CV Header Styling */
-.cv-header {
-    text-align: center;
+ .cv-header {
+    text-align: left;
     margin-bottom: 2rem;
-}
+} 
 
 .cv-header h1 {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-bottom: 0.5em;
 }
 

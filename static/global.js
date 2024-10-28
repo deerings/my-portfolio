@@ -1,40 +1,5 @@
 console.log('IT\'S ALIVE');
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Color scheme selector
-    document.body.insertAdjacentHTML(
-        'afterbegin',
-        `
-        <label class="color-scheme" style="position: absolute; top: 1rem; right: 1rem; font-size: 80%;">
-            Theme:
-            <select id="color-scheme-selector">
-                <option value="light dark">Automatic</option>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-            </select>
-        </label>
-        `
-    );
-
-    const select = document.querySelector("#color-scheme-selector");
-    
-    function setColorScheme(scheme) {
-        document.documentElement.style.setProperty('color-scheme', scheme);
-        localStorage.colorScheme = scheme; 
-    }
-    
-    // Load saved color scheme from localStorage
-    if ("colorScheme" in localStorage) {
-        select.value = localStorage.colorScheme;
-        setColorScheme(localStorage.colorScheme);
-    }
-
-    // Change color scheme on input change
-    select.addEventListener('input', (event) => {
-        const scheme = event.target.value;
-        setColorScheme(scheme);
-    });
-
     // Form submission handling
     const form = document.getElementById("contactform");
 
@@ -61,4 +26,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-});
+

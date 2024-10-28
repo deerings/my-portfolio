@@ -1,32 +1,32 @@
 <script>
+    import { onMount } from 'svelte';
     import projects from '$lib/projects.json';
     import Project from '$lib/Project.svelte';
-    export let hLevel = 2; // This variable can be used if needed for something else
+
+    let root = document.documentElement;
+    let colorScheme;
+
+    // User data initialization
+    let userData;
+
+    onMount(() => {
+        colorScheme = localStorage.colorScheme ?? 'light dark';
+        root.style.setProperty('color-scheme', colorScheme);
+
+        // Fetch user data
+        fetch("https://api.github.com/users/deerings")
+            .then(response => response.json())
+            .then(data => {
+                userData = data;
+            })
+            .catch(error => {
+                console.error("Error fetching user data:", error);
+            });
+    });
 </script>
 
-<style>
-    /* Navigation styles moved from global CSS */
-    nav {
-        background-color: #333;
-        color: white;
-        padding: 1rem;
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 1rem;
-    }
-
-    nav a:hover {
-        text-decoration: underline;
-    }
-</style>
-
-<slot /> <!-- This will render the content of the routed pages -->
-
 <svelte:head>
-    <title>Sean Deering</title>
+    <title>Home</title>
 </svelte:head>
 
 <h1>Sean Deering</h1>
@@ -38,9 +38,50 @@
     <img src="images/GB_chiefs_shrunk.jpg" alt="Me aboard the USS Green Bay during a data collection event in Australia." width="600" height="400">
 </p>
 
-<h2>Latest Projects</h2> <!-- Subheading for projects section -->
-<div class="projects highlights"> <!-- Wrap projects in a div for styling -->
-    {#each projects.slice(0, 3) as p} <!-- Display the first 3 projects -->
-        <Project data={p} hLevel={3} />  <!-- Pass hLevel as a prop if needed -->
+{#if userData}
+<section>
+    <h2>My Github Stats</h2>
+    <dl class="profile-stats">
+        <dt>FOLLOWERS</dt>
+        <dd>{userData.followers}</dd>
+        <dt>FOLLOWING</dt>
+        <dd>{userData.following}</dd>
+        <dt>PUBLIC REPOSITORIES</dt>
+        <dd>{userData.public_repos}</dd>
+        <dt>PUBLIC GISTS</dt>
+        <dd>{userData.public_gists}</dd>
+    </dl>
+</section>
+{:else}
+    <p>Loading user data...</p>
+{/if}
+
+<style>
+    .profile-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+        gap: 0.5rem; /* Space between items */
+    }
+
+    dt {
+        grid-row: 1; /* Place dt elements in the first row */
+        color: gray; /* Set color to gray */
+        font-size: 0.9rem; /* Make font size smaller */
+        font-weight: 300; /* Use a thinner font weight */
+    } /* Closing brace for dt styles added */
+
+    dd {
+        grid-row: 2; /* Place dd elements in the second row */
+        margin: 0; /* Remove default margin */
+        font-size: 1.5rem; /* Increase font size for the numbers */
+    }
+</style>
+
+<h2>Latest Projects</h2>
+<div class="projects highlights">
+    {#each projects.slice(0, 3) as p}
+        <Project data={p} hLevel={3} />
     {/each}
 </div>
+
+<slot /> <!-- This will render the content of the routed pages -->

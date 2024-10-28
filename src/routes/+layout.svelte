@@ -1,28 +1,52 @@
 <script>
-    import { page } from '$app/stores';
-    /* import '../style.css'; // Importing global CSS */
+  import { page } from '$app/stores';
+  import { onMount } from 'svelte';
 
-    let pages = [
-        { url: './', title: 'Home' },
-        { url: 'projects', title: 'Projects' },
-        { url: 'contact', title: 'Contact' },
-        { url: 'cv', title: 'CV' },
-        { url: 'https://www.github.com/deerings', title: 'Github' },
-    ];
+  let colorScheme;
+
+  // Function to apply and save the color scheme
+  function setColorScheme(scheme) {
+      if (typeof document !== 'undefined') {
+          document.documentElement.style.setProperty('color-scheme', scheme);
+          globalThis.localStorage?.setItem('colorScheme', scheme);
+      }
+  }
+
+  // Apply the initial color scheme on page load
+  onMount(() => {
+      colorScheme = globalThis.localStorage?.getItem('colorScheme') || 'dark';
+      setColorScheme(colorScheme);
+  });
+
+  // Function to handle the change event and toggle the theme
+  function handleChange(event) {
+      colorScheme = event.target.value; // Holds the selected value
+      setColorScheme(colorScheme);
+  }
 </script>
 
+<!-- Color scheme selector with bind:value to colorScheme -->
+<label class="color-scheme" style="position: absolute; top: 1rem; right: 1rem; font-size: 80%;">
+  Theme:
+  <select bind:value={colorScheme} on:change={handleChange}>
+      <option value="light dark">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+  </select>
+</label>
+
 <nav>
-    {#each pages as p}
-      <a href={p.url} class={ $page.url.pathname === p.url ? 'active' : '' }>
-        {p.title}
-      </a>
-    {/each}
+  <a href="/" class={$page.url.pathname === '/' ? 'active' : ''}>Home</a>
+  <a href="/projects" class={$page.url.pathname === '/projects' ? 'active' : ''}>Projects</a>
+  <a href="/contact" class={$page.url.pathname === '/contact' ? 'active' : ''}>Contact</a>
+  <a href="/cv" class={$page.url.pathname === '/cv' ? 'active' : ''}>CV</a>
+  <a href="https://www.github.com/deerings" target="_blank" rel="noopener noreferrer">Github</a>
 </nav>
 
 <style>
   .active {
       font-weight: bold;
-      color: blue; /* Customize as needed */
+      color: gray; /* Customize as needed */
   }
 </style>
 
