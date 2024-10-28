@@ -36,10 +36,10 @@
 </label>
 
 <nav>
-    <a href="/" class={$page.url.pathname === '/' ? 'active' : ''}>Home</a>
-    <a href="/projects" class={$page.url.pathname === '/projects' ? 'active' : ''}>Projects</a>
-    <a href="/contact" class={$page.url.pathname === '/contact' ? 'active' : ''}>Contact</a>
-    <a href="/cv" class={$page.url.pathname === '/cv' ? 'active' : ''}>CV</a>
+    <a href="#/" class={$page.url.pathname === '/' ? 'active' : ''}>Home</a>
+    <a href="#/projects" class={$page.url.pathname === '/projects' ? 'active' : ''}>Projects</a>
+    <a href="#/contact" class={$page.url.pathname === '/contact' ? 'active' : ''}>Contact</a>
+    <a href="#/cv" class={$page.url.pathname === '/cv' ? 'active' : ''}>CV</a>
     <a href="https://www.github.com/deerings" target="_blank" rel="noopener noreferrer">Github</a>
 </nav>
 
