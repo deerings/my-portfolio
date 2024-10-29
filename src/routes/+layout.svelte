@@ -16,7 +16,7 @@
 
   // Apply the initial color scheme on page load
   onMount(() => {
-      colorScheme = globalThis.localStorage?.getItem('colorScheme') || 'dark';
+      colorScheme = globalThis.localStorage?.getItem('colorScheme') || 'light dark';
       setColorScheme(colorScheme);
   });
 

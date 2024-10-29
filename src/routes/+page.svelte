@@ -10,7 +10,7 @@
     let userData;
 
     onMount(() => {
-        colorScheme = localStorage.colorScheme ?? 'automatic';
+        colorScheme = localStorage.colorScheme ?? 'light dark';
         root.style.setProperty('color-scheme', colorScheme);
 
         // Fetch user data
