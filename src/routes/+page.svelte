@@ -31,7 +31,7 @@
 </svelte:head>
 
 <h1>Sean Deering</h1>
-<p>Hi, I'm Sean. I work at Naval Health Research Center in San Diego, CA.<br><br>
+<p>Hi, I'm Sean. That's me in the green shirt. I work at Naval Health Research Center in San Diego, CA.<br><br>
     I'm a second-year graduate student in the Online Master of Data Science Program at the Halıcıoğlu Data Science Institute at UCSD.<br><br>
     I enjoy camping, ice hockey, sailing, and cooking (just to name a few).
 </p>
