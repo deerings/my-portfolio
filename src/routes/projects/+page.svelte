@@ -1,6 +1,6 @@
 <script>
   let root = document.documentElement;
-  let colorScheme = localStorage.colorScheme ?? 'dark'; // Default to dark mode
+  let colorScheme = localStorage.colorScheme ?? 'light dark'; 
   root.style.setProperty('color-scheme', colorScheme);
 
   import projects from '$lib/projects.json';
