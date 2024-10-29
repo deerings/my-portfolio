@@ -35,15 +35,22 @@ nav a.current {
     background-color: gray; /* added */
     color: white; /* added */
     font-weight: bold; /* Make the current page link bold */
-    border-bottom: 0.4em solid oklch(80% 3% 150); /* Thick bottom border */
+    border-bottom: 0.4em solid solid var(--color-accent); /* Thick bottom border */
     padding-bottom: 0.4em; /* Reduced bottom padding to counter the height increase */
 }
+
+nav a.active {
+    font-weight: bold; /* Make the active link bold */
+    color: gray; /* Text color for the active link */
+    border-bottom: 0.4em solid oklch(80% 3% 200); /* Thick bottom border for active link */
+    padding-bottom: 0.3em; /* Reduced padding to counter height increase */
+  }
 
 .current-page-indicator {
     height: 5px; /* Height of the bar */
     background-color: grey; /* Color of the bar */
     width: 100%; /* Full width indicator */
-    position: relative; /* Position the bar absolutely */
+    position: absolute; /* Position the bar absolutely */
     top: 0; /* Align with top of the nav */
     left: 0; /* Align to left */
     transition: width 0.3s, left 0.3s; /* Smooth transition for width and left */

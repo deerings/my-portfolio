@@ -23,6 +23,27 @@
                 console.error("Error fetching user data:", error);
             });
     });
+
+    onMount(() => {
+        // This block only runs in the browser - ADDED
+        colorScheme = localStorage.colorScheme ?? 'light dark';
+        if (typeof document !== 'undefined') {
+            document.documentElement.style.setProperty('color-scheme', colorScheme);
+        }
+    });
+
+    // Only run this code in the client environment
+    onMount(() => {
+        colorScheme = localStorage.colorScheme ?? 'light dark';
+        document.documentElement.style.setProperty('color-scheme', colorScheme);
+
+    });
+
+    onMount(() => {
+      // Code that relies on 'document'
+      document.documentElement.style.setProperty('color-scheme', 'light');
+      // other client-only logic here
+  });
 </script>
 
 <svelte:head>

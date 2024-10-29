@@ -1,11 +1,12 @@
 <script>
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
+  import '../style.css';
 
   const basePath = '/my-portfolio';
   let colorScheme;
 
-  // Function to apply and save the color scheme
+  // apply and save the color scheme
   function setColorScheme(scheme) {
       if (typeof document !== 'undefined') {
           document.documentElement.style.setProperty('color-scheme', scheme);
