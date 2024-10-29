@@ -41,7 +41,7 @@
 
     onMount(() => {
       // Code that relies on 'document'
-      document.documentElement.style.setProperty('color-scheme', 'light');
+      document.documentElement.style.setProperty('color-scheme', 'light dark');
       // other client-only logic here
   });
 </script>
