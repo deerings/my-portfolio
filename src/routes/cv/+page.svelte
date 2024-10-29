@@ -1,6 +1,6 @@
 <script>
     let root = document.documentElement;
-    let colorScheme = localStorage.colorScheme ?? 'dark';
+    let colorScheme = localStorage.colorScheme ?? 'light dark';
     root.style.setProperty('color-scheme', colorScheme);
 
     const projects = Array.from(document.querySelectorAll('.projects > article')).map((a) => ({
