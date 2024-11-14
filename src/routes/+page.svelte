@@ -1,19 +1,18 @@
 <script>
-    import { onMount } from 'svelte';
     import projects from '$lib/projects.json';
     import Project from '$lib/Project.svelte';
+    import { onMount } from 'svelte';
 
-    let root = document.documentElement;
     let colorScheme;
-
-    // User data initialization
     let userData;
 
     onMount(() => {
+        // Set color scheme based on localStorage (only runs on the client side)
+        let root = document.documentElement;
         colorScheme = localStorage.colorScheme ?? 'light dark';
         root.style.setProperty('color-scheme', colorScheme);
 
-        // Fetch user data
+        // Fetch user data from GitHub
         fetch("https://api.github.com/users/deerings")
             .then(response => response.json())
             .then(data => {
@@ -23,7 +22,6 @@
                 console.error("Error fetching user data:", error);
             });
     });
-
 </script>
 
 <svelte:head>
@@ -69,7 +67,7 @@
         color: gray; /* Set color to gray */
         font-size: 0.9rem; /* Make font size smaller */
         font-weight: 300; /* Use a thinner font weight */
-    } /* Closing brace for dt styles added */
+    }
 
     dd {
         grid-row: 2; /* Place dd elements in the second row */
