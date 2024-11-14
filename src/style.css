@@ -1,6 +1,14 @@
 :root {
-    --color-accent: oklch(65% 50% 0); /* Define your accent color here */
-    --color-accent-light: oklch(65% 95% 5%); /* Light color with the same hue */
+    --color-accent: oklch(65% 50% 0); /* Accent color */
+    --color-accent-light: oklch(65% 95% 5%); /* Light color */
+}
+
+/* Styles for project cards */
+.projects .project {
+    background: none; /* No background */
+    border: none; /* No border */
+    box-shadow: none; /* No shadow */
+    padding: 1rem; /* Optional: Set padding if needed */
 }
 
 body {

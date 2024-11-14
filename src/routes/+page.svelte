@@ -71,6 +71,7 @@
 
     dd {
         grid-row: 2; /* Place dd elements in the second row */
+        border: none; /* Remove border */
         margin: 0; /* Remove default margin */
         font-size: 1.5rem; /* Increase font size for the numbers */
     }
