@@ -1,5 +1,5 @@
 <script>
-  import Pie from './Pie.svelte'; // Or adjust this relative path based on your file structure
+  import Pie from '$lib/Pie.svelte'; // Import Pie component
   import projects from './projects.json'; // Import project data
 </script>
 
