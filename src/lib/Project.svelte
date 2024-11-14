@@ -1,17 +1,22 @@
 <script>
-  export let data = {};
+  import Pie from './src/lib/pie.svelte'; // Adjust the path as needed
+  import projects from '/src/lib/projects.json'; // Import project data
 </script>
 
-<article>
-  <h2>{data.title}</h2>
-  <img src={data.image} alt={data.title} />
+{#each projects as project}
+  <article>
+    <h2>{project.title}</h2>
+    <img src={project.image} alt={project.title} />
 
-  <!-- Wrapper div for description and year -->
-  <div class="description-container">
-    <p>{data.description}</p>
-    <p class="year"><strong>Year:</strong> {data.year}</p>
-  </div>
-</article>
+    <div class="description-container">
+      <p>{project.description}</p>
+      <p class="year"><strong>Year:</strong> {project.year}</p>
+    </div>
+
+    <!-- Pass only metadata to Pie.svelte -->
+    <Pie />
+  </article>
+{/each}
 
 <style>
   article {
@@ -22,7 +27,7 @@
     background-color: #f9f9f9;
     text-align: center;
   }
-  
+
   h2 {
     font-size: 1.5em;
     margin: 0.5em 0;
