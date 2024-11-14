@@ -37,12 +37,10 @@
     margin: 0.5em 0;
   }
 
-  /* Styling for description and year container */
   .description-container {
     margin-top: 1em;
   }
 
-  /* Styling specifically for the year */
   .year {
     font-size: 0.9em;
     color: #666;
