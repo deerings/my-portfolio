@@ -3,10 +3,18 @@
   import Project from '$lib/Project.svelte';
   import Pie from '$lib/Pie.svelte';
   import * as d3 from 'd3';
+  import { onMount } from 'svelte';
 
-  let root = document.documentElement;
-  let colorScheme = localStorage.colorScheme ?? 'light dark'; 
-  root.style.setProperty('color-scheme', colorScheme);
+  let colorScheme = 'light dark'; // Default to 'light dark' if not set
+
+  // Apply color scheme on mount to ensure it's only done on the client side
+  onMount(() => {
+    if (typeof window !== 'undefined') {
+      const root = document.documentElement;
+      colorScheme = localStorage.colorScheme ?? 'light dark';
+      root.style.setProperty('color-scheme', colorScheme);
+    }
+  });
 
   let query = ''; // Initialize search query
   let selectedYearIndex = -1; // Initialize selected year index

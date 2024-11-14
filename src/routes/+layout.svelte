@@ -6,17 +6,26 @@
   const basePath = '/my-portfolio';
   let colorScheme;
 
-  // apply and save the color scheme
+  // Ensure localStorage is available in the client
+  const localStorageAvailable = typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
+
+  // Apply and save the color scheme
   function setColorScheme(scheme) {
       if (typeof document !== 'undefined') {
           document.documentElement.style.setProperty('color-scheme', scheme);
-          globalThis.localStorage?.setItem('colorScheme', scheme);
+          if (localStorageAvailable) {
+              globalThis.localStorage.setItem('colorScheme', scheme);
+          }
       }
   }
 
   // Apply the initial color scheme on page load
   onMount(() => {
-      colorScheme = globalThis.localStorage?.getItem('colorScheme') || 'light dark';
+      if (localStorageAvailable) {
+          colorScheme = globalThis.localStorage?.getItem('colorScheme') || 'light dark';
+      } else {
+          colorScheme = 'light dark'; // Default if localStorage is not available
+      }
       setColorScheme(colorScheme);
   });
 
@@ -30,7 +39,7 @@
 <!-- Color scheme selector with bind:value to colorScheme -->
 <label class="color-scheme" style="position: absolute; top: 1rem; right: 1rem; font-size: 80%;">
   Theme:
-  <select bind:value={colorScheme} on:change={handleChange}>
+  <select bind:value={colorScheme} on:change={handleChange} aria-label="Select color scheme">
       <option value="light dark">Automatic</option>
       <option value="light">Light</option>
       <option value="dark">Dark</option>
