@@ -1,6 +1,6 @@
 <script>
   import Pie from '$lib/Pie.svelte'; // Import Pie component
-  import projects from './projects.json'; // Import project data
+  import projects from './projects.json'; // Import project data //
 </script>
 
 {#each projects as project}

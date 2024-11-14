@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [sveltekit()],
   resolve: {
     alias: {
-      '@lib': '/src/lib', // Alias to resolve imports from the 'src/lib' folder
-    },
-  },
+      $lib: '/src/lib'
+    }
+  }
 });
