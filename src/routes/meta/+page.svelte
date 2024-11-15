@@ -15,7 +15,7 @@
 
     onMount(async () => {
         try {
-            data = await d3.csv('/loc.csv', (row) => ({
+            data = await d3.csv('static/loc.csv', (row) => ({
                 ...row,
                 line: +row.line || 0,
                 depth: +row.depth || 0,
@@ -28,7 +28,7 @@
                 commit,
                 datetime: new Date(lines[0].datetime),
                 hourFrac: lines[0].datetime.getHours() + lines[0].datetime.getMinutes() / 60,
-                url: `https://github.com/your-repo/${commit}`,
+                url: `https://github.com/deerings/${commit}`,
                 author: lines[0].author,
                 linesEdited: lines.length,
                 lines: lines.map(line => ({ type: line.type }))
