@@ -150,3 +150,12 @@ ul {
     list-style-type: disc;
     margin-left: 1.5rem;
 }
+
+/* responsive image */
+.responsive-image {
+    max-width: 100%; /* Scale the image down to fit the container */
+    height: auto;   /* Maintain the aspect ratio */
+    display: block; /* Center the image when combined with margin auto */
+    margin: 0 auto; /* Center the image horizontally */
+}
+

@@ -32,10 +32,11 @@
 <p>Hi, I'm Sean. That's me in the green shirt. I work at Naval Health Research Center in San Diego, CA.<br><br>
     I'm a second-year graduate student in the Online Master of Data Science Program at the Halıcıoğlu Data Science Institute at UCSD.<br><br>
     I enjoy camping, ice hockey, sailing, and cooking (just to name a few).
-</p>
-<p style="text-align:center;">
-    <img src="images/GB_chiefs_shrunk.jpg" alt="Me aboard the USS Green Bay during a data collection event in Australia." width="600" height="400">
-</p>
+    <p style="text-align: center;">
+        <img src="images/GB_chiefs_shrunk.jpg" 
+             alt="Me aboard the USS Green Bay during a data collection event in Australia." 
+             class="responsive-image">
+    </p>
 
 {#if userData}
 <section>
