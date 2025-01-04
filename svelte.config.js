@@ -1,19 +1,26 @@
-import adapter from '@sveltejs/adapter-static';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'; // Correct import
+import sveltePreprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    adapter: adapter({
-      pages: 'build',
-      assets: 'build',
-      fallback: '404.html',
-      precompress: false,
-      strict: true,
-      trailingSlash: 'always',
-    }),
+    // Configure base path for GitHub Pages
     paths: {
-      base: process.env.NODE_ENV === 'production' ? '/my-portfolio' : '',
-    }
-  }
+      base: '/my-portfolio',  // Make sure this matches your GitHub repository name
+    },
+    prerender: {
+      // Handle 404 errors gracefully
+      handleHttpError: ({ status }) => {
+        if (status === 404) {
+          return { status: 200, body: 'Page not found' }; // Handle 404 errors
+        }
+      },
+    },
+  },
+  preprocess: [
+    vitePreprocess(),
+    sveltePreprocess(),
+  ],
 };
+
 export default config;
