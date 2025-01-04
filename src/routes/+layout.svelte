@@ -4,6 +4,7 @@
   import '../style.css';
 
   const basePath = '/my-portfolio';
+  export const prerender = true;
   let colorScheme;
 
   // Ensure localStorage is available in the client
