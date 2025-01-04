@@ -5,21 +5,17 @@
 
 /* Styles for project cards */
 .projects .project {
-    background: none;
-    border: none;
-    box-shadow: none;
-    margin: 0; /* Eliminate external margins */
-    padding: 1rem; /* Internal padding for spacing */
-    display: flex; /* Enable flexbox for content alignment */
+    display: flex; /* Flexbox ensures content aligns properly */
     flex-direction: column;
-    justify-content: space-between; /* Distribute content evenly */
-    height: 100%; /* Ensure uniform height */
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100%; /* Force cards to occupy the same height */
 }
 
 .projects .project img {
-    max-width: 100%; /* Ensure images fit within cards */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: Rounded corners for a polished look */
+    max-width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure images fill their container proportionally */
 }
 
 body {
@@ -101,10 +97,8 @@ nav a.active {
 
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); /* Responsive columns */
-    gap: 1.5em; /* Space between grid items */
-    margin-bottom: 2em; /* Space below the grid */
-    padding: 1rem; /* Optional: Padding around the grid container */
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    gap: 1.5em;
 }
 
 /* CV Header Styling */
