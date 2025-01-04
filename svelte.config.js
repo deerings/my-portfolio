@@ -2,12 +2,10 @@ import adapter from '@sveltejs/adapter-static';
 
 const config = {
   kit: {
-    adapter: adapter({
-      paths: {
-        base: '/my-portfolio',  // Make sure this matches the base path for GitHub Pages
-      },
-    }),
-    // other configurations...
+    adapter: adapter(),
+    paths: {
+      base: process.env.NODE_ENV === 'production' ? '/my-portfolio' : '', // Use '/my-portfolio' for production
+    },
   },
 };
 
