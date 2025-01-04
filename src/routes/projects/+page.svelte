@@ -18,7 +18,7 @@
   let pieData;
   $: {
     let rolledData = d3.rollups(
-      filteredProjects,
+      filteredProjects, // Make sure to use filteredProjects here
       (v) => v.length,
       (d) => d.year
     );
@@ -34,9 +34,9 @@
 
   // Filter projects by the selected year if a year is selected
   let filteredByYear;
-  $: filteredByYear = filteredProjects.filter((project) =>
-    selectedYear ? project.year === selectedYear : true
-  );
+  $: filteredByYear = selectedYear
+    ? filteredProjects.filter((project) => project.year === selectedYear)
+    : filteredProjects;
 </script>
 
 <h1>{filteredByYear.length} Projects</h1>
@@ -54,28 +54,9 @@
 
 <p>Here is a showcase of my projects.</p>
 
-<!-- Projects grid container showing only filtered projects by year -->
+<!-- Projects grid container showing only filtered projects by year and search query -->
 <div class="projects">
-  {#each filteredByYear as p}
+  {#each filteredByYear as p (p.year + p.title)} <!-- Using a unique key here for proper rendering -->
     <Project data={p} />
   {/each}
 </div>
-
-<style>
-  .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5em;
-  }
-
-  /* Optional styling for the search input */
-  input[type="search"] {
-    padding: 0.5em;
-    margin-bottom: 1em;
-    width: 100%;
-    max-width: 400px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-</style>

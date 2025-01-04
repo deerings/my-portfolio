@@ -1,54 +1,26 @@
 <script>
-  import Pie from '$lib/Pie.svelte'; // Import Pie component
-  import projects from './projects.json'; // Import project data //
+  export let data; 
+  import Pie from '$lib/Pie.svelte';
 </script>
 
-{#each projects as project}
-  <article>
-    <h2>{project.title}</h2>
-    <img src={project.image} alt={project.title} />
+<article class="project-card">
+  <h2>{data.title}</h2>
+  
+  {#if data.image}
+    <img
+      src={data.image}
+      alt={data.title}
+      loading="lazy"
+    />
+  {/if}
 
-    <div class="description-container">
-      <p>{project.description}</p>
-      <p class="year"><strong>Year:</strong> {project.year}</p>
-    </div>
+  <div class="content">
+    <p class="description">{data.description}</p>
+    <p class="year">
+      <strong>Year:</strong> {data.year}
+    </p>
+  </div>
 
-    <!-- Pass only metadata to Pie.svelte -->
-    <Pie />
-  </article>
-{/each}
+  <Pie {data} />
+</article>
 
-<style>
-  article {
-    margin-bottom: 20px;
-    padding: 1em;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    text-align: center;
-  }
-
-  h2 {
-    font-size: 1.5em;
-    margin: 0.5em 0;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin: 0.5em 0;
-  }
-
-  .description-container {
-    margin-top: 1em;
-  }
-
-  .year {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 0.5em;
-  }
-</style>

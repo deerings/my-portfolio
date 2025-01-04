@@ -78,9 +78,11 @@
 
 <h2>Latest Projects</h2>
 <div class="projects highlights">
-    {#each projects.slice(0, 3) as p}
-        <Project data={p} hLevel={3} />
+    {#each projects.slice(0, 3) as project}
+        <Project data={project} hLevel={3} />
     {/each}
 </div>
 
-<slot /> <!-- This will render the content of the routed pages -->
+
+
+
