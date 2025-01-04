@@ -52,8 +52,9 @@
     <a href="/my-portfolio/cv" class={$page.url.pathname === '/my-portfolio/cv' ? 'active' : ''}>CV</a>
     <a href="/my-portfolio/contact" class={$page.url.pathname === '/my-portfolio/contact' ? 'active' : ''}>Contact</a>
     <a href="https://www.github.com/deerings" target="_blank" rel="noopener noreferrer">Github</a>
-  </nav>
-  
+</nav>
+
+
 <style>
   .active {
       font-weight: bold;
