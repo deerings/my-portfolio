@@ -39,6 +39,10 @@
     : filteredProjects;
 </script>
 
+<svelte:head>
+    <title>Projects</title>
+  </svelte:head>
+
 <h1>{filteredByYear.length} Projects</h1>
 
 <!-- Pie chart with reactive data and year selection binding -->
