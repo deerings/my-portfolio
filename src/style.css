@@ -19,6 +19,12 @@
     /* padding: 1em;   */
 }
 
+.projects article img {
+    width: 100%; /* Makes image fill the full width of its container */
+    height: 200px; /* Fixed height for all images */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 8px; /* Optional: Rounded corners for images */
+}
 body {
     font: 100%/1.5 system-ui;
     max-width: 100ch;

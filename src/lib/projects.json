@@ -3,13 +3,13 @@
 		
 		"title": "DSC 209R Project 2: Deceptive Visualization ",
 		"year": "2024",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/Project2.png",
 		"description": "This was my second project for DSC209R. It involved creating an Earnest and Deceptive visualization. I chose to use traffic stop data for the city of San Diego."
 	},
 	{
 		"title": "DSC 209R Project 1: Expository Visualization",
 		"year": "2024",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/Project1.png",
 		"description": "This was my first project for DSC 209R, which involved designing a single static visualization to effectively communicate an idea about climate data in major US Cities."
 	},
 	{
