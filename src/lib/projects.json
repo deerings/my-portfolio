@@ -21,31 +21,31 @@
 	{
 		"title": "Dawn of a New Dawn: Advances in Sleep Health to Optimize Performance.",
 		"year": "2023",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/Dawn.png",
 		"description": "Optimal sleep health is essential for high-level performance, particularly in demanding fields like the military, public service, and healthcare, where sleep deficiencies can significantly impact performance. Advances in sleep monitoring technologies and strategies to mitigate poor sleep health offer promising avenues for research within these populations. This review highlights the connection between sleep health and performance, along with recent developments in behavioral and technological approaches to enhance sleep health."
 	},
 	{
 		"title": "Effect of Two Interventional Strategies on Improving Continuous Positive Airway Pressure Adherence in Existing COPD and Obstructive Sleep Apnea Patients: The O2VERLAP Study.",
 		"year": "2022",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/O2verlap_a.png",
 		"description": "Obstructive sleep apnea (OSA) affects over 10% of individuals with chronic obstructive pulmonary disease (COPD). The O2VERLAP study compared the effectiveness of proactive care (PC) versus reactive care (RC) groups in improving CPAP adherence. Participants ages 40 and older with diagnoses of both COPD and OSA were recruited online and randomly assigned to either the PC or RC group, with outcomes assessed at various time points. Although baseline CPAP adherence differed significantly between groups, there were no significant differences in adherence or other secondary outcomes over time, indicating that both care approaches were similarly effective."
 	},
 	{
 		"title": "Comparing Two Methods to Improve CPAP Use among Patients with COPD and Obstructive Sleep Apnea — The O2VERLAP Study.",
 		"year": "2021",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/O2verlap_b.png",
 		"description": "The O2VERLAP study aimed to compare the effectiveness of proactive versus reactive care in improving CPAP adherence among patients with sleep apnea and COPD. Results showed no significant differences in adherence or patient-reported outcomes, likely due to high baseline adherence and potential selection bias from electronic recruitment methods."
 	},
 	{
 		"title": "Real-world longitudinal data collected from the SleepHealth mobile app study",
 		"year": "2020",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/Sleephealth.png",
 		"description": "The SleepHealth Mobile App Study explored the use of smartphones for biomedical research. The aim of the study was to understand the relationship between sleep and daytime function. This innovative approach allowed us to gather large-scale, real-world data through electronic surveys and activities, as well as contextual and environmental data from device sensors and connected wearables. The study also assessed the feasibility of a fully remote method of obtaining sleep data, evaluated data validity, and examined user retention and data-sharing preferences. Ultimately, data from 7,250 U.S. participants who consented to share their data broadly was published online to benefit the field of sleep research."
 	},
 	{
 		"title": "When Conflict Cannot be Avoided: Relative Contributions of Early Selection and Frontal Executive Control in Mitigating Stroop Conflict.",
 		"year": "2019",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/Conflict.png",
 		"description": "This study examined how familiar stimuli (like common words) interfere with processing incompatible sensory information and the mechanisms that mitigate this interference. It contrasted early selection (which filters out distractors) with late selection (which analyzes all inputs, but resolves conflicts later). Using a variant of the Stroop task with flickering targets and distractors at different frequencies, we measured early sensory processing using steady-state visually evoked potentials (SSVEPs) and assessed frontal executive processes via changes in frontal theta oscillations as measured with electroencephalography (EEG). The findings revealed that SSVEPs were unaffected by conflicting sensory input. Frontal theta activity increased with higher conflict, suggesting that frontal executive processes are more involved in managing cognitive interference from automated processing of familiar visual stimuli."
 	},
 	{
