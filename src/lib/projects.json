@@ -51,24 +51,24 @@
 	{
 		"title": "Accelerating Research With Technology: Rapid Recruitment for a Large-Scale Web-Based Sleep Study.",
 		"year": "2019",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/Rapid.png",
 		"description": "The study examined the Achievement Studies platform's effectiveness in expediting participant recruitment and enhancing engagement in web-based research on sleep and daytime function. Over five days, 1,156 participants enrolled, with an initial rate of 6.6 participants per minute in the first hour. Most completed baseline questionnaires and shared data from wearable devices. The findings indicated that the platform facilitated rapid recruitment and high engagement, though it required participants to have internet access and wearable devices, which may limit the sample's representativeness of the general population."
 	},
 	{
 		"title": "Having More Choices Changes How Human Observers Weight Stable Sensory Evidence.",
 		"year": "2018",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/Choices.png",
 		"description": "This study investigated the impact of increasing the number of choices on decision-making speed, separating its effects from task difficulty and divided attention. The findings revealed that while dividing attention reduced sensory and decision-related neural responses, having more choices did not affect early sensory processing and instead increased decision thresholds, leading to slower decision-making."
 	},
 	{
 		"title": "CPAP Adherence is Associated With Attentional Improvements in a Group of Primarily Male Patients With Moderate to Severe OSA.",
 		"year": "2017",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/CPAP Adh.png",
 		"description": "This study examined the relationship between adherence to continuous positive airway pressure (CPAP) therapy and sustained attention in patients with obstructive sleep apnea (OSA). The results indicated that greater CPAP adherence was associated with significant improvements in vigilance, as measured by the Psychomotor Vigilance Task (PVT), highlighting the importance of consistent CPAP use for enhancing attention and cognitive function in OSA patients."
 	},
 	{
 		"title": "Sensory Gain Outperforms Efficient Readout Mechanisms in Predicting Attention-Related Improvements in Behavior.",
 		"year": "2014",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"image": "https://raw.githubusercontent.com/deerings/my-portfolio/main/static/images/Sensory.png",
 		"description": "This study investigated how spatial attention affects perceptual sensitivity by examining the relationship between attentional focus, neural activity, and behavioral performance using psychophysics, event-related potentials (ERPs), and mathematical modeling. The findings indicate that spatial attention enhances perceptual sensitivity primarily through a multiplicative increase in the amplitude of early sensory ERP components, particularly the P1, rather than through noise modulation or alterations in decision-making processes."}
 	]
