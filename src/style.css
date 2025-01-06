@@ -1,111 +1,139 @@
 :root {
-    --color-accent: oklch(65% 50% 0); /* Accent color */
-    --color-accent-light: oklch(65% 95% 5%); /* Light color */
+    --color-accent: oklch(65% 50% 0);
+    --color-accent-light: oklch(65% 95% 5%);
 }
 
-/* Styles for project cards */
+.projects {
+    display: grid; /* Use a grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); /* Responsive columns */
+    gap: 1em; /* Space between items */
+    align-items: stretch; /* Ensure grid items stretch to align properly */
+}
+
 .projects .project {
-    display: flex; /* Flexbox ensures content aligns properly */
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-    height: 100%; /* Force cards to occupy the same height */
+    display: flex; /* Use Flexbox inside each tile for internal alignment */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute internal content evenly */
+    align-items: stretch; /* Stretch internal content */
+    height: 100%; /* Force tiles to have consistent height */
 }
 
 .projects .project img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover; /* Ensure images fill their container proportionally */
+    width: 100%; /* Ensure images take up full width of their container */
+    height: 12em; /* Set a fixed height for images */
+    object-fit: cover; /* Crop/scale images to fit without distortion */
+    flex-shrink: 0; /* Prevent images from shrinking */
+}
+
+.projects .project-content {
+    flex-grow: 1; /* Ensure the rest of the content grows to fill space */
+    display: flex; /* Use Flexbox for internal alignment */
+    flex-direction: column;
+    justify-content: space-between; /* Space out content */
+    padding: 1em; /* Add some padding around the content */
 }
 
 body {
     font: 100%/1.5 system-ui;
-    max-width: 100ch; 
+    max-width: 100ch;
     margin-inline: auto;
-    padding: 1rem; 
+    padding: 1rem;
 }
 
 nav {
-    display: flex; /* Enable Flexbox for the navigation */
-    margin-bottom: 1rem; /* Spacing below the nav */
-    border-bottom: 2px solid oklch(80% 3% 200); /* Bottom border */
-    position: relative; /* Set position to relative for the indicator */
+    display: flex;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid oklch(80% 3% 200);
+    position: relative;
+    box-sizing: border-box; /* Ensure consistent sizing */
 }
 
 nav a {
-    flex: 1; /* Make each <a> take equal space */
-    padding: 0.4em; /* Spacing inside links */
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Use the same color as the parent */
-    text-align: center; /* Center text in each link */
-    background-color: var(--color-accent-light); /* Light background color */
-    position: relative; /* Set position to relative */
+    flex: 1;
+    padding: 0.4em;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    background-color: var(--color-accent-light);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box; /* Prevent padding adjustments causing jitter */
 }
 
-nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent); /* Use accent color for bottom border */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0.4em;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%);
 }
 
-nav a.current {
-    background-color: gray; /* added */
-    color: white; /* added */
-    font-weight: bold; /* Make the current page link bold */
-    border-bottom: 0.4em solid solid var(--color-accent); /* Thick bottom border */
-    padding-bottom: 0.4em; /* Reduced bottom padding to counter the height increase */
+nav a:hover::after {
+    width: 100%;
+    left: 50%;
 }
 
+nav a.current::after,
+nav a.active::after {
+    width: 100%;
+    left: 50%;
+}
+
+nav a.current,
 nav a.active {
-    font-weight: bold; /* Make the active link bold */
-    color: gray; /* Text color for the active link */
-    border-bottom: 0.4em solid oklch(80% 3% 200); /* Thick bottom border for active link */
-    padding-bottom: 0.3em; /* Reduced padding to counter height increase */
-  }
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+}
 
 .current-page-indicator {
-    height: 5px; /* Height of the bar */
-    background-color: grey; /* Color of the bar */
-    width: 100%; /* Full width indicator */
-    position: absolute; /* Position the bar absolutely */
-    top: 0; /* Align with top of the nav */
-    left: 0; /* Align to left */
-    transition: width 0.3s, left 0.3s; /* Smooth transition for width and left */
-} 
+    height: 5px;
+    background-color: grey;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease, width 0.3s ease;
+}
+
+nav a.current ~ .current-page-indicator {
+    width: 100%;
+    transform: translateX(calc(/* offset for the active item */));
+}
+
+/* Additional styles remain unchanged unless required */
 
 .contact-form form {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: auto 1fr; /* Two columns: labels take width of content, inputs take remaining space */
-    gap: 1em; /* Add spacing between form controls */
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
 }
 
 .contact-form label {
-    display: block; /* Make labels behave like block elements */
-    margin-block: 0.5rem; /* Add spacing above and below labels */
+    display: block;
+    margin-block: 0.5rem;
 }
 
-.contact-form input, 
-.contact-form textarea, 
+.contact-form input,
+.contact-form textarea,
 .contact-form button {
-    display: block; /* Make form controls block elements */
-    width: 100%; /* Make inputs full width */
-    box-sizing: border-box; /* Include padding and borders in the element's total width */
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-form button {
-    grid-column: 1 / -1; /* Make the button span both columns */
-    margin-top: 1rem; /* Add some space above the button */
+    grid-column: 1 / -1;
+    margin-top: 1rem;
 }
 
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
-    gap: 1.5em;
-}
-
-/* CV Header Styling */
- .cv-header {
+.cv-header {
     text-align: left;
     margin-bottom: 2rem;
-} 
+}
 
 .cv-header h1 {
     font-size: 2em;
@@ -117,7 +145,6 @@ nav a.active {
     color: #666;
 }
 
-/* CV Section Styling */
 .cv-section {
     margin-bottom: 2rem;
 }
@@ -130,7 +157,6 @@ nav a.active {
     margin-bottom: 1rem;
 }
 
-/* Job/Experience Styling */
 .cv-job {
     margin-bottom: 1.5rem;
 }
@@ -151,17 +177,23 @@ nav a.active {
     color: #777;
 }
 
-/* List Styling */
 ul {
     list-style-type: disc;
     margin-left: 1.5rem;
 }
 
-/* responsive image */
 .responsive-image {
-    max-width: 100%; /* Scale the image down to fit the container */
-    height: auto;   /* Maintain the aspect ratio */
-    display: block; /* Center the image when combined with margin auto */
-    margin: 0 auto; /* Center the image horizontally */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
+.projects-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures the items wrap if they overflow */
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: center; /* Vertically align the items */
+    gap: 16px; /* Add space between the tiles */
+    margin: 0 auto; /* Center the container if needed */
+  }

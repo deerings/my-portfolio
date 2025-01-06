@@ -55,11 +55,4 @@
     <a href="https://www.github.com/deerings" target="_blank" rel="noopener noreferrer">Github</a>
   </nav>
 
-<style>
-  .active {
-      font-weight: bold;
-      color: gray; /* Customize as needed */
-  }
-</style>
-
 <slot></slot> <!-- Render child components/pages -->
