@@ -3,34 +3,20 @@
     --color-accent-light: oklch(65% 95% 5%);
 }
 
+/* Projects Layout - Responsive Grid */
 .projects {
-    display: grid; /* Use a grid layout */
-    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr)); /* Responsive columns */
-    gap: 1em; /* Space between items */
-    align-items: stretch; /* Ensure grid items stretch to align properly */
+    display: grid;  /* Make .projects a grid container */
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));  /* Flexible columns */
+    gap: 1em;  /* Space between each project card */
+    margin-top: 2em; /* Optional: Add space above the grid */
 }
-
-.projects .project {
-    display: flex; /* Use Flexbox inside each tile for internal alignment */
-    flex-direction: column; /* Stack content vertically */
-    justify-content: space-between; /* Distribute internal content evenly */
-    align-items: stretch; /* Stretch internal content */
-    height: 100%; /* Force tiles to have consistent height */
-}
-
-.projects .project img {
-    width: 100%; /* Ensure images take up full width of their container */
-    height: 12em; /* Set a fixed height for images */
-    object-fit: cover; /* Crop/scale images to fit without distortion */
-    flex-shrink: 0; /* Prevent images from shrinking */
-}
-
-.projects .project-content {
-    flex-grow: 1; /* Ensure the rest of the content grows to fill space */
-    display: flex; /* Use Flexbox for internal alignment */
-    flex-direction: column;
-    justify-content: space-between; /* Space out content */
-    padding: 1em; /* Add some padding around the content */
+  
+  /* Each project card */
+.projects article {
+    display: grid;  /* Grid layout inside each project card */
+    grid-template-rows: subgrid;  /* Align content to parent grid's rows */
+    grid-row: span 3;  /* Each project card spans 3 rows */
+    /* padding: 1em;   */
 }
 
 body {
@@ -188,12 +174,3 @@ ul {
     display: block;
     margin: 0 auto;
 }
-
-.projects-container {
-    display: flex;
-    flex-wrap: wrap; /* Ensures the items wrap if they overflow */
-    justify-content: space-around; /* Distribute items evenly */
-    align-items: center; /* Vertically align the items */
-    gap: 16px; /* Add space between the tiles */
-    margin: 0 auto; /* Center the container if needed */
-  }
