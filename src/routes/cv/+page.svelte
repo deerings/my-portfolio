@@ -41,6 +41,9 @@
           <h2>Education</h2>
           <article>
               <h3>University of California, San Diego</h3>
+              <p>MS, Data Science (in progress) <time datetime="2025">2025</time></p>
+              <p>Areas of Concentration: Statistics, Machine Learning, Data Mining, Big Data Analytics, Data Visualization</p>
+              <br>
               <p>BS, Psychology (Department honors with distinction) <time datetime="2012">2012</time></p>
               <p>Areas of Concentration: Cognitive Psychology & Cognitive Neuropsychology</p>
               <p>Honors Thesis: “Are regular players of first-person shooter video games better at multiple object tracking?”</p>
@@ -92,29 +95,52 @@
       </section>
   
       <section class="cv-section">
-          <h2>Presentations</h2>
-          <ul>
-              <li>Martinez S. et al. (2019). Monitoring and Peer Support to Improve Treatment Adherence and Outcomes... (Poster)</li>
-              <li>McCleary K. et al. (2019). Listening to the Patient Voice in Sleep Apnea... (Poster)</li>
-              <li>Deering S. et al. (2018). A Three-Minute Mobile Version of The Psychomotor Vigilance Task... (Poster)</li>
-              <li>Deering S. et al. (2017). SleepHealth Mobile App Study: Bringing The Sleep Lab To You... (Poster)</li>
-          </ul>
+        <h2>Presentations</h2>
+        <ul class="presentation-list">
+          <li>Deering S., Kubala A.G., Jameson J.T., Roma P.G., Russell D.W., Markwald R.R., LaGoy A.D. Are you ready? An examination of wearable-estimated readiness and self-reported impairment in shipboard settings. Naval Health Research Center (Poster, 2024).</li>
+          <li>Deering S., Kubala A.G., Jameson J.T., Roma P.G., Russell D.W., Markwald R.R., LaGoy A.D. Are you ready? An examination of wearable-estimated readiness and self-reported impairment in shipboard settings. Military Health Services Research Symposium (Poster, 2024).</li>
+          <li>Martinez S., Sullivan J., Pasquale C., Amdur A., Clark B., Walsh L., Deering S., Malanga E., Stepnowsky C.J. Monitoring and Peer Support to Improve Treatment Adherence And Outcomes In Patients With Overlap Chronic Obstructive Pulmonary Disease And Sleep Apnea Via A Large PCORnet Collaboration (O2VERLAP). Washington Marriott Wardman Park, Washington, DC (Poster, 2019).</li>
+          <li>McCleary K., Amdur J., Amdur A., Deering S., Stepnowsky C.J. Listening to the Patient Voice in Sleep Apnea: Daytime Functioning and Experience with Therapy. Henry B. Gonzalez Convention Center. San Antonio, Texas. (Poster, 2019).</li>
+          <li>Deering S., Amdur A., Borelli J., Headapohl W., Stepnowsky C.J. A Three-Minute Mobile Version of The Psychomotor Vigilance Task. Baltimore Convention Center, Baltimore, MD (Poster, 2018).</li>
+          <li>Deering S., Amdur A., Borelli J., Headapohl W., Drobnich D., Stepnowsky C.J. SleepHealth Mobile App Study: Bringing The Sleep Lab To You. Hynes Convention Center, Boston, MA (Poster, 2017).</li>
+          <li>Deering S., Zamora T., Smales C., Sarmiento K., Stepnowsky C.J. Significant Changes In Sleep Architecture In OSA Patients Following Short-term Treatment With Positive Airway Pressure. Colorado Convention Center, Denver, CO (Poster, 2016).</li>
+          <li>Deering S., Zamora T., Liu L., Sarmiento K., Hamilton J., Stepnowsky C.J. PAP Adherence Is Associated With Improved Vigilance In Moderate To Severe OSA Patients. Colorado Convention Center, Denver, CO (Poster, 2016).</li>
+          <li>Zamora T., Deering S., Sarmiento K., Stepnowsky C.J. Obstructive Sleep Apnea Illness Perception Relative To Other Common Chronic Conditions. Colorado Convention Center, Denver, CO (Poster, 2016).</li>
+          <li>Itthipuripat S., Ester E.F., Deering S., Serences J.T. When Simplicity Surpasses Complexity: Simple Sensory Gain Outperforms Efficient Selection Mechanisms In Predicting Attention-Related Behavioral Improvements. Salk Institute, La Jolla, CA (Talk, 2014).</li>
+          <li>Itthipuripat S., Ester E.F., Deering S., Serences J.T. Focal Attention Improves Perceptual Decision Making By Enhancing Multiplicative Response Gain Of Cortical Activity In Humans. Vision Sciences Society, St. Pete Beach, FL (Poster, 2014).</li>
+          <li>Itthipuripat S., Ester E.F., Deering S., Serences J.T. Attentional Enhancement Via Sensory Gain In Human Cortex. Department of Cognitive Science Talk, UCSD, La Jolla, CA (Talk, 2014).</li>
+          <li>Deering S. & Vul E. Are Regular Players of First-person Shooter Video Games Better at Multiple Object Tracking? UCSD Annual Psychology Honors Poster Session. La Jolla, CA (Poster, 2012).</li>
+          <li>Deering S. & Vul E. Enhanced Multiple Object Tracking Abilities in Regular Players of First-person Shooter Video Games. Annual California Cognitive Science Conference, Berkeley, CA (Poster, 2012).</li>
+        </ul>
       </section>
-  
+      
+
       <section class="cv-section">
-          <h2>Peer-Reviewed Publications</h2>
-          <ul>
-              <li>Itthipuripat S., Deering S., Serences J.T. (2019). When Conflict Cannot be Avoided... <a href="https://doi.org/10.1093/cercor/bhz042">[DOI]</a></li>
-              <li>Deering S. et al. (2019). Accelerating Research With Technology... <a href="https://doi.org/10.2196/10974">[DOI]</a></li>
-              <li>Itthipuripat S. et al. (2018). Having More Choices Changes How Human Observes Weight Stable Sensory Evidence... <a href="https://www.jneurosci.org/content/38/40/8635">[DOI]</a></li>
-          </ul>
-      </section>
-  
+        <h2>Peer-Reviewed Publications</h2>
+        <ul class="peer-reviewed-list">
+            <li>LaGoy AD, Kubala AG, Deering S, Germain A, Markwald RR (2023). Dawn of a New Dawn: Advances in Sleep Health to Optimize Performance. Sleep Med Clin. <a href="https://doi.org/10.1016/j.jsmc.2023.05.010">[DOI]</a></li>
+            <li>Martinez S, Sullivan J, Pasquale C, Clark B, Malanga E, Deering S, Liu L, Stepnowsky CJ. (2022). Effect of Two Interventional Strategies on Improving Continuous Positive Airway Pressure Adherence in Existing COPD and Obstructive Sleep Apnea Patients: The O2VERLAP Study. Chronic Obstr Pulm Dis. <a href="https://doi.org/10.15326/jcopdf.2022.0293">[DOI]</a></li>
+            <li>Stepnowsky C, Malanga E, Martinez S, Sullivan J, Deering S, Pasquale C, Liu L. (2021). Comparing Two Methods to Improve CPAP Use among Patients with COPD and Obstructive Sleep Apnea — The O2VERLAP Study [Internet]. Patient-Centered Outcomes Research Institute (PCORI). <a href="https://doi.org/10.25302/09.2021.PPRND.150731666">[DOI]</a></li>
+            <li>Deering S., Pratap A., Suver C., Borelli J., Amdur A., Headapohl W., Stepnowsky C.J. (2020). Real-world longitudinal data collected from the SleepHealth mobile app study. Nature Scientific Data. <a href="https://doi.org/10.1038/s41597-020-00753-2">[DOI]</a></li>
+            <li>Itthipuripat S.*, Deering S.*, Serences J.T. (2019). When Conflict Cannot be Avoided: Relative Contributions of Early Selection and Frontal Executive Control In Mitigating Stroop Conflict. Cerebral Cortex. <a href="https://doi.org/10.1093/cercor/bhz042">[DOI]</a></li>
+            <li>Deering S., Grade M.M., Uppal J.K., Foschini L, Juusola J., Amdur A.M., Stepnowsky C.J. (2019). Accelerating Research With Technology: Rapid Recruitment For A Large-Scale Web-Based Sleep Study. JMIR Research Protocols. <a href="https://doi.org/10.2196/10974">[DOI]</a></li>
+            <li>Itthipuripat S. Cha K., Deering S., Salazar A.M., Serences J.T. (2018). Having More Choices Changes How Human Observes Weight Stable Sensory Evidence. Journal of Neuroscience. <a href="https://www.jneurosci.org/content/38/40/8635">[DOI]</a></li>
+            <li>Deering S., Liu L., Zamora T., Hamilton J., Stepnowsky C.J. (2017). CPAP Adherence Is Associated With Attentional Improvements In A Group of Primarily Male Patients With Moderate To Severe OSA. Journal of Clinical Sleep Medicine. <a href="https://doi.org/10.5664/jcsm.6838">[DOI]</a></li>
+            <li>Itthipuripat S., Ester E.F., Deering S., Serences J.T. (2014). Sensory Gain Outperforms Efficient Read-out Mechanisms In Predicting Attention Related Improvements In Behavior. Journal of Neuroscience. <a href="https://doi.org/10.1523/JNEUROSCI.2277-14.2014">[DOI]</a></li>
+        </ul>
+    </section>
+    
       <section class="cv-section">
           <h2>Work Experience</h2>
           <article>
+            <h3>Research Associate – Naval Health Research Center, Warfighter Performance (Leidos Contractor)</h3>
+            <p><strong>Dec. 2021 – present</strong><br>Point Loma, CA</p>
+            <p>Duties: Operational Research, data processing and cleaning. Support with technical projects. Co-writing scientific manuscripts</p>
+        </article>
+
+          <article>
               <h3>Research Associate – VA San Diego Healthcare System</h3>
-              <p><strong>Jun. 2015 – present</strong><br>La Jolla, CA</p>
+              <p><strong>Jun. 2015 – Nov. 2021</strong><br>La Jolla, CA</p>
               <p>Duties: Participant recruitment/screening for sleep apnea research studies, administering standardized questionnaires, data processing and analysis.</p>
           </article>
   

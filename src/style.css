@@ -139,6 +139,7 @@ nav a.current ~ .current-page-indicator {
 
 .cv-section {
     margin-bottom: 2rem;
+    padding-left: 0;
 }
 
 .cv-section h2 {
@@ -172,6 +173,24 @@ nav a.current ~ .current-page-indicator {
 ul {
     list-style-type: disc;
     margin-left: 1.5rem;
+}
+
+.peer-reviewed-list {
+    padding-left: 0; /* Remove default list indentation */
+    list-style: none;
+}
+
+.peer-reviewed-list li {
+    margin-bottom: 10px; /* Add space between items */
+}
+
+.presentation-list {
+    padding-left: 0; /* Remove default list indentation */
+    list-style: none;
+}
+
+.presentation-list li {
+    margin-bottom: 10px; /* Add space between items */
 }
 
 .responsive-image {
