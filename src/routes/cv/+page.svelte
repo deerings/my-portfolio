@@ -97,6 +97,9 @@
       <section class="cv-section">
         <h2>Presentations</h2>
         <ul class="presentation-list">
+          <li>Scott J.V., Carruthers A., Beauchene C.E., Markwald R.R., LaGoy A.D., Kubala A.G., Deering S., Roma P.G., Crane M.K. Improving Schedule-Driven Fatigue Models with Wearables and Machine Learning. Military Health Services Research Symposium (Breakout Session, 2025).</li>  
+          <li>Deering S., Roma P.G., LaGoy A.D., Kubala A.G., Uriarte J.E., Russell D.W., Markwald R.R. Effect of Sleep During Reduced Tempo Transition Periods On Readiness and Health During High-Stress Naval Operations. Associated Professional Sleep Societies (Poster, 2025). </li>  
+          <li>Uriarte J.E., LaGoy A.D., Jameson J.T., Roma P.G., Kubala A.G., Deering S., Cuellar J., Russell D.W., Markwald R.R. Sleep Patterns, Lifestyle Behaviors, and Sleep-Related Daytime Impairments in U.S. Navy Shipboard Environments. Associated Professional Sleep Societies (Poster, 2025). </li>
           <li>Deering S., Kubala A.G., Jameson J.T., Roma P.G., Russell D.W., Markwald R.R., LaGoy A.D. Are you ready? An examination of wearable-estimated readiness and self-reported impairment in shipboard settings. Naval Health Research Center (Poster, 2024).</li>
           <li>Deering S., Kubala A.G., Jameson J.T., Roma P.G., Russell D.W., Markwald R.R., LaGoy A.D. Are you ready? An examination of wearable-estimated readiness and self-reported impairment in shipboard settings. Military Health Services Research Symposium (Poster, 2024).</li>
           <li>Martinez S., Sullivan J., Pasquale C., Amdur A., Clark B., Walsh L., Deering S., Malanga E., Stepnowsky C.J. Monitoring and Peer Support to Improve Treatment Adherence And Outcomes In Patients With Overlap Chronic Obstructive Pulmonary Disease And Sleep Apnea Via A Large PCORnet Collaboration (O2VERLAP). Washington Marriott Wardman Park, Washington, DC (Poster, 2019).</li>
