@@ -41,7 +41,7 @@
           <h2>Education</h2>
           <article>
               <h3>University of California, San Diego</h3>
-              <p>MS, Data Science (in progress) <time datetime="2025">2025</time></p>
+              <p>MS, Data Science <time datetime="2025">2025</time></p>
               <p>Areas of Concentration: Statistics, Machine Learning, Data Mining, Big Data Analytics, Data Visualization</p>
               <br>
               <p>BS, Psychology (Department honors with distinction) <time datetime="2012">2012</time></p>
