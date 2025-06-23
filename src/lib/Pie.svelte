@@ -2,7 +2,7 @@
   import * as d3 from 'd3';
 
   export let data = [];
-
+  export let selectedIndex = -1; // Export selectedIndex to allow binding from parent
 
   // Create the pie generator to calculate angles, with the .value() function to specify the 'value' key
   let sliceGenerator = d3.pie().value((d) => d.value);
@@ -28,6 +28,11 @@
   function handleHover(index, isHovering) {
       hoveredIndex = isHovering ? index : null; // Set or clear the hovered index
   }
+
+  // Function to handle click events for slice selection
+  function handleClick(index) {
+      selectedIndex = selectedIndex === index ? -1 : index; // Toggle selection
+  }
 </script>
 
 <style>
@@ -47,14 +52,42 @@
   }
 
   path {
-transition: 300ms;
-}
+    transition: 300ms;
+    cursor: pointer;
+  }
+
+  path:hover {
+    filter: brightness(1.1);
+  }
+
+  path.selected {
+    stroke: #333;
+    stroke-width: 2;
+  }
 
   /* Flexbox for vertical alignment of text and swatch */
-  .legend li {
+  .legend button {
       display: flex;
       align-items: center;
       gap: 0.5em;  /* Adds spacing between the swatch and the label */
+      cursor: pointer;
+      padding: 0.25em;
+      border-radius: 4px;
+      transition: background-color 200ms;
+      border: none;
+      background: transparent;
+      font: inherit;
+      text-align: left;
+      width: 100%;
+  }
+
+  .legend button:hover {
+      background-color: #f0f0f0;
+  }
+
+  .legend button.selected {
+      background-color: #e3f2fd;
+      font-weight: bold;
   }
 
   .legend .swatch {
@@ -77,12 +110,15 @@ transition: 300ms;
           <path
               d="{arcGenerator(arc)}"
               fill="{colors(i)}"
+              class:selected="{selectedIndex === i}"
               on:mouseenter="{() => handleHover(i, true)}"
               on:mouseleave="{() => handleHover(i, false)}"
+              on:click="{() => handleClick(i)}"
               style="opacity: {hoveredIndex !== null && hoveredIndex !== i ? 0.5 : 1}"
-              role="img"
-              aria-label="Slice for {arcData[i].data.label}, value: {arcData[i].data.value}"
-              
+              role="button"
+              tabindex="0"
+              aria-label="Slice for {arcData[i].data.label}, value: {arcData[i].data.value}. Click to filter projects by this year."
+              on:keydown="{(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick(i); } }}"
           />
       {/each}
   </svg>
@@ -90,9 +126,16 @@ transition: 300ms;
   <!-- Legend displaying data labels and corresponding color swatches -->
   <ul class="legend">
       {#each data as d, index}
-          <li style="--color: {colors(index)}">
-              <span class="swatch"></span>
-              {d.label} <em>({d.value})</em>
+          <li>
+              <button 
+                  style="--color: {colors(index)}"
+                  class:selected="{selectedIndex === index}"
+                  on:click="{() => handleClick(index)}"
+                  aria-label="Filter by {d.label} ({d.value} projects)"
+              >
+                  <span class="swatch"></span>
+                  {d.label} <em>({d.value})</em>
+              </button>
           </li>
       {/each}
   </ul>
