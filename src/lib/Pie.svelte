@@ -60,11 +60,6 @@
     filter: brightness(1.1);
   }
 
-  path.selected {
-    stroke: #333;
-    stroke-width: 2;
-  }
-
   /* Flexbox for vertical alignment of text and swatch */
   .legend button {
       display: flex;
@@ -110,7 +105,6 @@
           <path
               d="{arcGenerator(arc)}"
               fill="{colors(i)}"
-              class:selected="{selectedIndex === i}"
               on:mouseenter="{() => handleHover(i, true)}"
               on:mouseleave="{() => handleHover(i, false)}"
               on:click="{() => handleClick(i)}"
