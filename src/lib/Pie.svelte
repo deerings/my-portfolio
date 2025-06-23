@@ -49,15 +49,22 @@
       max-width: 20em;
       overflow: visible;
       flex-shrink: 0;  /* Prevents the SVG from shrinking */
+      outline: none;  /* Remove focus outline */
   }
 
   path {
     transition: 300ms;
     cursor: pointer;
+    outline: none;  /* Remove focus outline */
   }
 
   path:hover {
     filter: brightness(1.1);
+  }
+
+  path.selected {
+    stroke: #333;
+    stroke-width: 2;
   }
 
   /* Flexbox for vertical alignment of text and swatch */
@@ -105,6 +112,7 @@
           <path
               d="{arcGenerator(arc)}"
               fill="{colors(i)}"
+              class:selected="{selectedIndex === i}"
               on:mouseenter="{() => handleHover(i, true)}"
               on:mouseleave="{() => handleHover(i, false)}"
               on:click="{() => handleClick(i)}"
