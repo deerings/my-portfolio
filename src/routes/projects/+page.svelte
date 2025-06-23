@@ -48,15 +48,6 @@
 <!-- Pie chart with reactive data and year selection binding -->
 <Pie data={pieData} bind:selectedIndex={selectedYearIndex} />
 
-{#if selectedYear}
-  <p>
-    Showing projects from <strong>{selectedYear}</strong>. 
-    <button on:click={() => selectedYearIndex = -1} style="background: none; border: none; color: #007acc; cursor: pointer; text-decoration: underline;">
-      Show all projects
-    </button>
-  </p>
-{/if}
-
 <!-- Search input -->
 <input
   type="search"
