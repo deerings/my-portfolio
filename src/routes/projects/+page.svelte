@@ -47,7 +47,7 @@
 
 <!-- Pie chart with reactive data and year selection binding -->
 <Pie data={pieData} bind:selectedIndex={selectedYearIndex} />
-
+<br>
 <!-- Search input -->
 <input
   type="search"
@@ -56,7 +56,6 @@
   placeholder="🔍 Search projects…"
 />
 
-<p>Here is a showcase of my projects.</p>
 <!-- Projects grid container showing only filtered projects by year and search query -->
 <div class="projects">
   {#each filteredByYear as p (p.year + p.title)} <!-- Using a unique key here for proper rendering -->
