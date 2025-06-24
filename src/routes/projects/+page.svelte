@@ -5,7 +5,7 @@
   import * as d3 from 'd3';
 
   let query = ''; // Initialize search query
-  let selectedYearIndex = -1; // Initialize selected year index
+  let selectedYearIndices = []; // Initialize selected year indices array
 
   // Reactive filtered projects based on search query
   let filteredProjects;
@@ -23,19 +23,23 @@
       (d) => d.year
     );
 
-    pieData = rolledData.map(([year, count]) => {
-      return { value: count, label: year };
-    });
+    pieData = rolledData
+      .map(([year, count]) => {
+        return { value: count, label: year };
+      })
+      .sort((a, b) => b.label - a.label); // Sort by year descending (2024 to earliest)
   }
 
-  // Determine the selected year based on the selectedYearIndex
-  let selectedYear;
-  $: selectedYear = selectedYearIndex > -1 ? pieData[selectedYearIndex]?.label : null;
+  // Determine the selected years based on the selectedYearIndices
+  let selectedYears;
+  $: selectedYears = selectedYearIndices.length > 0 
+    ? selectedYearIndices.map(index => pieData[index]?.label).filter(Boolean)
+    : [];
 
-  // Filter projects by the selected year if a year is selected
+  // Filter projects by the selected years if any years are selected
   let filteredByYear;
-  $: filteredByYear = selectedYear
-    ? filteredProjects.filter((project) => project.year === selectedYear)
+  $: filteredByYear = selectedYears.length > 0
+    ? filteredProjects.filter((project) => selectedYears.includes(project.year))
     : filteredProjects;
 </script>
 
@@ -43,10 +47,10 @@
     <title>Projects</title>
   </svelte:head>
 
-<h1>{filteredByYear.length} Projects{selectedYear ? ` from ${selectedYear}` : ''}</h1>
+<h1>{filteredByYear.length} Project{filteredByYear.length === 1 ? '' : 's'}{selectedYears.length > 0 ? ` from ${selectedYears.join(', ')}` : ''}</h1>
 
 <!-- Pie chart with reactive data and year selection binding -->
-<Pie data={pieData} bind:selectedIndex={selectedYearIndex} />
+<Pie data={pieData} bind:selectedIndices={selectedYearIndices} />
 <br>
 <!-- Search input -->
 <input

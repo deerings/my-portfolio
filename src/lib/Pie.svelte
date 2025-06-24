@@ -2,10 +2,12 @@
   import * as d3 from 'd3';
 
   export let data = [];
-  export let selectedIndex = -1; // Export selectedIndex to allow binding from parent
+  export let selectedIndices = []; // Export selectedIndices to allow binding from parent
 
   // Create the pie generator to calculate angles, with the .value() function to specify the 'value' key
-  let sliceGenerator = d3.pie().value((d) => d.value);
+  let sliceGenerator = d3.pie()
+    .value((d) => d.value)
+    .sort(null); // Disable sorting to preserve data order
 
   // Create the arc generator (no need to manually calculate angles)
   let arcGenerator = d3.arc()
@@ -30,8 +32,20 @@
   }
 
   // Function to handle click events for slice selection
-  function handleClick(index) {
-      selectedIndex = selectedIndex === index ? -1 : index; // Toggle selection
+  function handleClick(index, event) {
+      if (event.shiftKey) {
+          // Multi-select mode: toggle the index in the array
+          if (selectedIndices.includes(index)) {
+              selectedIndices = selectedIndices.filter(i => i !== index);
+          } else {
+              selectedIndices = [...selectedIndices, index];
+          }
+      } else {
+          // Single select mode: replace selection
+          selectedIndices = selectedIndices.includes(index) && selectedIndices.length === 1 
+              ? [] 
+              : [index];
+      }
   }
 </script>
 
@@ -63,8 +77,7 @@
   }
 
   path.selected {
-    stroke: #333;
-    stroke-width: 2;
+    transform-origin: center;
   }
 
   /* Flexbox for vertical alignment of text and swatch */
@@ -88,8 +101,20 @@
   }
 
   .legend button.selected {
-      background-color: #e3f2fd;
       font-weight: bold;
+  }
+
+  .legend button.selected .swatch {
+      animation: blink-white 1s infinite;
+  }
+
+  @keyframes blink-white {
+      0%, 50% {
+          background-color: white !important;
+      }
+      51%, 100% {
+          background-color: var(--color);
+      }
   }
 
   .legend .swatch {
@@ -112,15 +137,16 @@
           <path
               d="{arcGenerator(arc)}"
               fill="{colors(i)}"
-              class:selected="{selectedIndex === i}"
+              class:selected="{selectedIndices.includes(i)}"
+              transform="{selectedIndices.includes(i) ? `translate(${arcGenerator.centroid(arc).map(d => d * 0.1).join(',')})` : ''}"
               on:mouseenter="{() => handleHover(i, true)}"
               on:mouseleave="{() => handleHover(i, false)}"
-              on:click="{() => handleClick(i)}"
+              on:click="{(event) => handleClick(i, event)}"
               style="opacity: {hoveredIndex !== null && hoveredIndex !== i ? 0.5 : 1}"
               role="button"
               tabindex="0"
-              aria-label="Slice for {arcData[i].data.label}, value: {arcData[i].data.value}. Click to filter projects by this year."
-              on:keydown="{(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick(i); } }}"
+              aria-label="Slice for {arcData[i].data.label}, value: {arcData[i].data.value}. Click to filter projects by this year. Shift+click to select multiple years."
+              on:keydown="{(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleClick(i, e); } }}"
           />
       {/each}
   </svg>
@@ -131,9 +157,9 @@
           <li>
               <button 
                   style="--color: {colors(index)}"
-                  class:selected="{selectedIndex === index}"
-                  on:click="{() => handleClick(index)}"
-                  aria-label="Filter by {d.label} ({d.value} projects)"
+                  class:selected="{selectedIndices.includes(index)}"
+                  on:click="{(event) => handleClick(index, event)}"
+                  aria-label="Filter by {d.label} ({d.value} projects). Shift+click to select multiple years."
               >
                   <span class="swatch"></span>
                   {d.label} <em>({d.value})</em>

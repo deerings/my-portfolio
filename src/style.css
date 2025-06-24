@@ -77,8 +77,8 @@ nav a.active::after {
 
 nav a.current,
 nav a.active {
-    background-color: gray;
-    color: white;
+    /* background-color: gray; */
+    color: var(--color-accent);
     font-weight: bold;
 }
 
