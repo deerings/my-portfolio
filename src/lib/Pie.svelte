@@ -81,6 +81,11 @@
   }
 
   /* Flexbox for vertical alignment of text and swatch */
+  .legend {
+      list-style: none;  /* Remove bullet points */
+      padding-left: 0;   /* Remove default list padding */
+  }
+
   .legend button {
       display: flex;
       align-items: center;

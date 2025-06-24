@@ -28,9 +28,11 @@
     <title>Home</title>
 </svelte:head>
 
-<h1>Sean Deering</h1>
-<p>Hi, I'm Sean. That's me in the green shirt. I do operational research at Naval Health Research Center in San Diego, CA. I mainly work with active-duty Navy.<br><br>
-    I enjoy camping, ice hockey, sailing, and cooking (just to name a few things).
+<h1>Home</h1>
+<p>Hi, I'm Sean. <br>That's me in the green shirt (aboard the USS Green Bay in Sydney, Australia during Exercise Talisman Sabre 2023).<br> 
+    I'm part of Sleep, Tactical Efficiency, and Endurance Laboratory (STEEL) at Naval Health Research Center in Point Loma, CA. <br>
+    I mainly work with active-duty Navy, measuring sleep in shipboard environments.<br><br>
+    When I'm not working, I enjoy camping, ice hockey, music, sailing, and cooking (just to name a few things).
     <p style="text-align: center;">
         <img src="images/GB_chiefs_shrunk.jpg" 
              alt="Me aboard the USS Green Bay during a data collection event in Australia." 
@@ -76,7 +78,7 @@
     }
 </style>
 
-<h2>Latest Projects</h2>
+<h2>My Latest Projects</h2>
 <div class="projects highlights">
     {#each projects.slice(0, 3) as project}
         <Project data={project} hLevel={3} />
