@@ -18,7 +18,11 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"cookie": "^0.7.0",
 		"d3": "^7.9.0",
 		"svelte-preprocess": "^6.0.3"
+	},
+	"overrides": {
+		"cookie": "^0.7.0"
 	}
 }
