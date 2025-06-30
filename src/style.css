@@ -24,6 +24,11 @@ html.theme-transitions *::after {
     transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
+/* Preserve navigation transitions even during theme transitions */
+html.theme-transitions nav a::after {
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, width 0.3s ease, left 0.3s ease;
+}
+
 /* Force light mode when .theme-light class is present */
 html.theme-light,
 html.theme-light * {
