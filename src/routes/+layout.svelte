@@ -69,7 +69,7 @@
 </script>
 
 <!-- Color scheme selector with bind:value to colorScheme -->
-<label class="color-scheme" style="position: absolute; top: 1rem; right: 1rem; font-size: 80%;">
+<label class="color-scheme">
   Theme:
   <select bind:value={colorScheme} on:change={handleChange} aria-label="Select color scheme">
       <option value="light dark">Automatic</option>
