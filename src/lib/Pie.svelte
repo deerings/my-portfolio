@@ -99,26 +99,30 @@
       font: inherit;
       text-align: left;
       width: 100%;
+      color: var(--color-text-primary);
   }
 
   .legend button:hover {
-      background-color: #f0f0f0;
+      background-color: var(--color-bg-hover);
   }
 
   .legend button.selected {
       font-weight: bold;
+      background-color: var(--color-bg-hover);
   }
 
   .legend button.selected .swatch {
-      animation: blink-white 1s infinite;
+      animation: blink-swatch 1s infinite;
   }
 
-  @keyframes blink-white {
+  @keyframes blink-swatch {
       0%, 50% {
-          background-color: white !important;
+          background-color: var(--color-bg-primary) !important;
+          border: 2px solid var(--color);
       }
       51%, 100% {
           background-color: var(--color);
+          border: 2px solid var(--color);
       }
   }
 
@@ -126,11 +130,13 @@
       width: 1em;
       height: 1em;
       background-color: var(--color);
+      border-radius: 2px;
+      border: 1px solid var(--color-border-light);
   }
 
   .legend em {
       font-style: normal;
-      color: #555;
+      color: var(--color-text-muted);
   }
 </style>
 

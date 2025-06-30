@@ -3,15 +3,11 @@
     import Project from '$lib/Project.svelte';
     import { onMount } from 'svelte';
 
-    let colorScheme;
+    export let data;
+
     let userData;
 
     onMount(() => {
-        // Set color scheme based on localStorage (only runs on the client side)
-        let root = document.documentElement;
-        colorScheme = localStorage.colorScheme ?? 'light dark';
-        root.style.setProperty('color-scheme', colorScheme);
-
         // Fetch user data from GitHub
         fetch("https://api.github.com/users/deerings")
             .then(response => response.json())
@@ -25,7 +21,7 @@
 </script>
 
 <svelte:head>
-    <title>Home</title>
+    <title>{data.title}</title>
 </svelte:head>
 
 <h1>Home</h1>
@@ -33,11 +29,13 @@
     I'm part of Sleep, Tactical Efficiency, and Endurance Laboratory (STEEL) at Naval Health Research Center in Point Loma, CA. <br>
     I mainly work with active-duty Navy, measuring sleep in shipboard environments.<br><br>
     When I'm not working, I enjoy camping, ice hockey, music, sailing, and cooking (just to name a few things).
-    <p style="text-align: center;">
-        <img src="images/GB_chiefs_shrunk.jpg" 
-             alt="Me aboard the USS Green Bay during a data collection event in Australia." 
-             class="responsive-image">
-    </p>
+</p>
+<p style="text-align: center;">
+    <img src="images/GB_chiefs_shrunk.jpg" 
+         alt="Me aboard the USS Green Bay during a data collection event in Australia." 
+         class="responsive-image"
+         loading="lazy">
+</p>
 
 {#if userData}
 <section>
@@ -66,7 +64,7 @@
 
     dt {
         grid-row: 1; /* Place dt elements in the first row */
-        color: gray; /* Set color to gray */
+        color: var(--color-text-muted); /* Set color to muted text */
         font-size: 0.9rem; /* Make font size smaller */
         font-weight: 300; /* Use a thinner font weight */
     }

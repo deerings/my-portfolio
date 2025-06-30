@@ -11,6 +11,7 @@
       src={data.image}
       alt={data.title}
       loading="lazy"
+      class="project-image"
     />
   {/if}
 
@@ -24,3 +25,12 @@
   <Pie {data} />
 </article>
 
+<style>
+  .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--color-border-light);
+  }
+</style>

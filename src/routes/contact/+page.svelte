@@ -1,6 +1,8 @@
 <script>
   import { onMount } from 'svelte';
 
+  export let data;
+
   onMount(() => {
     // Now this code only runs in the browser after mount
     let root = document.documentElement;
@@ -14,7 +16,7 @@
 </script>
 
 <svelte:head>
-  <title>Contact</title>
+  <title>{data.title}</title>
 </svelte:head>
 
 <h1>Contact</h1>

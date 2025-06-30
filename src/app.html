@@ -1,12 +1,41 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<title>Sean Deering's Personal Website</title>
+		<title>...</title>
+		%sveltekit.head%
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<script src="%sveltekit.assets%/global.js" type="module"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
+		
+		<!-- Prevent flash of unstyled content by applying theme immediately -->
+		<script>
+			(function() {
+				try {
+					const savedScheme = localStorage.getItem('colorScheme') || 'light dark';
+					const html = document.documentElement;
+					
+					// Remove any existing theme classes
+					html.classList.remove('theme-light', 'theme-dark', 'theme-auto');
+					
+					// Apply the appropriate theme class
+					if (savedScheme === 'light') {
+						html.classList.add('theme-light');
+					} else if (savedScheme === 'dark') {
+						html.classList.add('theme-dark');
+					} else {
+						html.classList.add('theme-auto');
+					}
+					
+					// Set CSS color-scheme property
+					html.style.setProperty('color-scheme', savedScheme);
+				} catch (e) {
+					// Fallback if localStorage isn't available
+					document.documentElement.classList.add('theme-auto');
+				}
+			})();
+		</script>
+		
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>

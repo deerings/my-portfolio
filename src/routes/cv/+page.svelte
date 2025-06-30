@@ -1,5 +1,7 @@
 <script>
     import { onMount } from 'svelte';
+    
+    export let data;
   
     onMount(() => {
       let root = document.documentElement;
@@ -24,7 +26,7 @@
   </script>
   
   <svelte:head>
-    <title>Curriculum Vitae</title>
+    <title>{data.title}</title>
   </svelte:head>
   
   <header class="cv-header">

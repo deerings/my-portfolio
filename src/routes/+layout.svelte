@@ -7,27 +7,58 @@
   const basePath = '/my-portfolio';
   let colorScheme;
 
+  // ...existing code...
+
   // Ensure localStorage is available in the client
   const localStorageAvailable = typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
 
   // Apply and save the color scheme
   function setColorScheme(scheme) {
       if (typeof document !== 'undefined') {
+          // Remove existing theme classes
+          document.documentElement.classList.remove('theme-light', 'theme-dark', 'theme-auto');
+          
+          // Set the appropriate class
+          if (scheme === 'light') {
+              document.documentElement.classList.add('theme-light');
+          } else if (scheme === 'dark') {
+              document.documentElement.classList.add('theme-dark');
+          } else {
+              document.documentElement.classList.add('theme-auto');
+          }
+          
+          // Also set the CSS color-scheme property for browser UI
           document.documentElement.style.setProperty('color-scheme', scheme);
+          
           if (localStorageAvailable) {
               globalThis.localStorage.setItem('colorScheme', scheme);
           }
       }
   }
 
+  // Apply theme immediately if possible (before mount)
+  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      colorScheme = localStorage.getItem('colorScheme') || 'light dark';
+      setColorScheme(colorScheme);
+  }
+
   // Apply the initial color scheme on page load
   onMount(() => {
       if (localStorageAvailable) {
-          colorScheme = globalThis.localStorage?.getItem('colorScheme') || 'light dark';
+          const storedScheme = globalThis.localStorage?.getItem('colorScheme') || 'light dark';
+          if (colorScheme !== storedScheme) {
+              colorScheme = storedScheme;
+              setColorScheme(colorScheme);
+          }
       } else {
           colorScheme = 'light dark'; // Default if localStorage is not available
+          setColorScheme(colorScheme);
       }
-      setColorScheme(colorScheme);
+      
+      // Enable smooth transitions after initial load to prevent flash
+      setTimeout(() => {
+          document.documentElement.classList.add('theme-transitions');
+      }, 100);
   });
 
   // Function to handle the change event and toggle the theme

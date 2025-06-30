@@ -1,6 +1,95 @@
 :root {
     --color-accent: oklch(65.635% 0.16316 275.144);
     --color-accent-light: oklch(65% 95% 5%);
+    
+    /* Base light theme colors (always applied first) */
+    --color-text-primary: oklch(25% 0% 0);
+    --color-text-secondary: oklch(45% 0% 0);
+    --color-text-muted: oklch(55% 0% 0);
+    
+    --color-bg-primary: oklch(98% 0% 0);
+    --color-bg-secondary: oklch(96% 0% 0);
+    --color-bg-hover: oklch(94% 0% 0);
+    
+    --color-border-light: oklch(88% 0% 0);
+    --color-border-medium: oklch(78% 0% 0);
+    
+    --color-focus-ring: oklch(65.635% 0.16316 275.144 / 0.3);
+}
+
+/* Smooth transitions for theme changes - but only after initial load */
+html.theme-transitions *,
+html.theme-transitions *::before,
+html.theme-transitions *::after {
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Force light mode when .theme-light class is present */
+html.theme-light,
+html.theme-light * {
+    --color-text-primary: oklch(25% 0% 0);
+    --color-text-secondary: oklch(45% 0% 0);
+    --color-text-muted: oklch(55% 0% 0);
+    
+    --color-bg-primary: oklch(98% 0% 0);
+    --color-bg-secondary: oklch(96% 0% 0);
+    --color-bg-hover: oklch(94% 0% 0);
+    
+    --color-border-light: oklch(88% 0% 0);
+    --color-border-medium: oklch(78% 0% 0);
+    
+    --color-focus-ring: oklch(65.635% 0.16316 275.144 / 0.3);
+}
+
+/* Dark mode colors for auto theme with dark preference */
+@media (prefers-color-scheme: dark) {
+    html.theme-auto {
+        --color-text-primary: oklch(95% 0% 0);
+        --color-text-secondary: oklch(75% 0% 0);
+        --color-text-muted: oklch(60% 0% 0);
+        
+        --color-bg-primary: oklch(15% 0% 0);
+        --color-bg-secondary: oklch(20% 0% 0);
+        --color-bg-hover: oklch(25% 0% 0);
+        
+        --color-border-light: oklch(30% 0% 0);
+        --color-border-medium: oklch(40% 0% 0);
+        
+        --color-focus-ring: oklch(65.635% 0.16316 275.144 / 0.4);
+    }
+}
+
+/* Force dark mode when .theme-dark class is present */
+html.theme-dark {
+    --color-text-primary: oklch(95% 0% 0);
+    --color-text-secondary: oklch(75% 0% 0);
+    --color-text-muted: oklch(60% 0% 0);
+    
+    --color-bg-primary: oklch(15% 0% 0);
+    --color-bg-secondary: oklch(20% 0% 0);
+    --color-bg-hover: oklch(25% 0% 0);
+    
+    --color-border-light: oklch(30% 0% 0);
+    --color-border-medium: oklch(40% 0% 0);
+    
+    --color-focus-ring: oklch(65.635% 0.16316 275.144 / 0.4);
+}
+
+/* Color scheme selector styling */
+.color-scheme {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+}
+
+.color-scheme select {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    padding: 0.25rem;
 }
 
 /* Projects Layout - Responsive Grid */
@@ -16,26 +105,39 @@
     display: grid;  /* Grid layout inside each project card */
     grid-template-rows: subgrid;  /* Align content to parent grid's rows */
     grid-row: span 3;  /* Each project card spans 3 rows */
-    /* padding: 1em;   */
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.projects article img {
-    width: 100%; /* Makes image fill the full width of its container */
-    height: 200px; /* Fixed height for all images */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
-    border-radius: 8px; /* Optional: Rounded corners for images */
+.projects article:hover {
+    box-shadow: 0 4px 12px oklch(0% 0% 0 / 0.1);
+    transform: translateY(-2px);
+}
+
+.projects article img,
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--color-border-light);
 }
 body {
     font: 100%/1.5 system-ui;
     max-width: 100ch;
     margin-inline: auto;
     padding: 1rem;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
 }
 
 nav {
     display: flex;
     margin-bottom: 1rem;
-    border-bottom: 2px solid oklch(80% 3% 200);
+    border-bottom: 2px solid var(--color-border-light);
     position: relative;
     box-sizing: border-box; /* Ensure consistent sizing */
 }
@@ -46,7 +148,7 @@ nav a {
     text-decoration: none;
     color: inherit;
     text-align: center;
-    background-color: var(--color-accent-light);
+    background-color: var(--color-bg-secondary);
     position: relative;
     overflow: hidden;
     box-sizing: border-box; /* Prevent padding adjustments causing jitter */
@@ -84,7 +186,7 @@ nav a.active {
 
 .current-page-indicator {
     height: 5px;
-    background-color: grey;
+    background-color: var(--color-border-medium);
     position: absolute;
     top: 0;
     left: 0;
@@ -94,6 +196,24 @@ nav a.active {
 nav a.current ~ .current-page-indicator {
     width: 100%;
     transform: translateX(calc(/* offset for the active item */));
+}
+
+/* Search input styling */
+input[type="search"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+}
+
+input[type="search"]:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px var(--color-focus-ring);
 }
 
 /* Additional styles remain unchanged unless required */
@@ -115,11 +235,31 @@ nav a.current ~ .current-page-indicator {
     display: block;
     width: 100%;
     box-sizing: border-box;
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    padding: 0.5rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px var(--color-focus-ring);
 }
 
 .contact-form button {
     grid-column: 1 / -1;
     margin-top: 1rem;
+    background-color: var(--color-accent);
+    color: oklch(100% 0% 0);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.contact-form button:hover {
+    background-color: var(--color-accent);
+    filter: brightness(0.9);
 }
 
 .cv-header {
@@ -134,7 +274,7 @@ nav a.current ~ .current-page-indicator {
 
 .cv-header p {
     font-size: 1.2em;
-    color: #666;
+    color: var(--color-text-secondary);
 }
 
 .cv-section {
@@ -145,7 +285,7 @@ nav a.current ~ .current-page-indicator {
 .cv-section h2 {
     font-size: 1.8em;
     color: var(--color-accent);
-    border-bottom: 2px solid var(--color-accent-light);
+    border-bottom: 2px solid var(--color-border-light);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -167,7 +307,7 @@ nav a.current ~ .current-page-indicator {
 
 .cv-job .date {
     font-style: italic;
-    color: #777;
+    color: var(--color-text-muted);
 }
 
 ul {
@@ -198,4 +338,40 @@ ul {
     height: auto;
     display: block;
     margin: 0 auto;
+}
+
+/* Project card specific styles */
+.project-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 12px oklch(0% 0% 0 / 0.1);
+    transform: translateY(-2px);
+}
+
+.project-card h2 {
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.3em;
+}
+
+.project-card .description {
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.project-card .year {
+    color: var(--color-text-muted);
+    font-size: 0.9em;
+    margin-bottom: 1rem;
+}
+
+.project-card .year strong {
+    color: var(--color-text-secondary);
 }

@@ -4,6 +4,8 @@
   import Pie from '$lib/Pie.svelte';
   import * as d3 from 'd3';
 
+  export let data;
+
   let query = ''; // Initialize search query
   let selectedYearIndices = []; // Initialize selected year indices array
 
@@ -44,8 +46,8 @@
 </script>
 
 <svelte:head>
-    <title>Projects</title>
-  </svelte:head>
+    <title>{data.title}</title>
+</svelte:head>
 
 <h1>{filteredByYear.length} Project{filteredByYear.length === 1 ? '' : 's'}{selectedYears.length > 0 ? ` from ${selectedYears.join(', ')}` : ''}</h1>
 
