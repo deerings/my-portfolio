@@ -5,9 +5,9 @@
   import '../style.css';
 
   const basePath = '/my-portfolio';
-  let colorScheme;
-
-  // ...existing code...
+  
+  // Initialize with the value that should already be applied by app.html
+  let colorScheme = 'light dark';
 
   // Ensure localStorage is available in the client
   const localStorageAvailable = typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
@@ -36,23 +36,13 @@
       }
   }
 
-  // Apply theme immediately if possible (before mount)
-  if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-      colorScheme = localStorage.getItem('colorScheme') || 'light dark';
-      setColorScheme(colorScheme);
-  }
-
   // Apply the initial color scheme on page load
   onMount(() => {
+      // Sync with what's already in localStorage (set by app.html)
       if (localStorageAvailable) {
           const storedScheme = globalThis.localStorage?.getItem('colorScheme') || 'light dark';
-          if (colorScheme !== storedScheme) {
-              colorScheme = storedScheme;
-              setColorScheme(colorScheme);
-          }
-      } else {
-          colorScheme = 'light dark'; // Default if localStorage is not available
-          setColorScheme(colorScheme);
+          colorScheme = storedScheme;
+          // Don't call setColorScheme here since app.html already applied it
       }
       
       // Enable smooth transitions after initial load to prevent flash
@@ -63,7 +53,7 @@
 
   // Function to handle the change event and toggle the theme
   function handleChange(event) {
-      colorScheme = event.target.value; // Holds the selected value
+      colorScheme = event.target.value;
       setColorScheme(colorScheme);
   }
 </script>

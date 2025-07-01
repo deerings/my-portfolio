@@ -6,6 +6,8 @@
     export let data;
 
     let userData;
+    let projectsContainer;
+    let showProjects = true; // Changed to true to prevent initial flash
 
     onMount(() => {
         // Fetch user data from GitHub
@@ -34,7 +36,9 @@
     <img src="images/GB_chiefs_shrunk.jpg" 
          alt="Me aboard the USS Green Bay during a data collection event in Australia." 
          class="responsive-image"
-         loading="lazy">
+         width="800"
+         height="600"
+         style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
 </p>
 
 {#if userData}
@@ -52,14 +56,32 @@
     </dl>
 </section>
 {:else}
-    <p>Loading user data...</p>
+    <section class="github-stats-loading">
+        <h2>My Github Stats</h2>
+        <dl class="profile-stats">
+            <dt>FOLLOWERS</dt>
+            <dd class="loading-placeholder">•••</dd>
+            <dt>FOLLOWING</dt>
+            <dd class="loading-placeholder">•••</dd>
+            <dt>PUBLIC REPOSITORIES</dt>
+            <dd class="loading-placeholder">•••</dd>
+            <dt>PUBLIC GISTS</dt>
+            <dd class="loading-placeholder">•••</dd>
+        </dl>
+    </section>
 {/if}
 
 <style>
+    /* Prevent layout shifts */
+    section {
+        min-height: fit-content;
+    }
+    
     .profile-stats {
         display: grid;
         grid-template-columns: repeat(4, 1fr); /* Four equal columns */
         gap: 0.5rem; /* Space between items */
+        min-height: 4rem; /* Reserve space to prevent layout shift */
     }
 
     dt {
@@ -73,6 +95,49 @@
         grid-row: 2; /* Place dd elements in the second row */
         margin: 0; /* Remove default margin */
         font-size: 1.5rem; /* Increase font size for the numbers */
+    }
+
+    /* Loading placeholder styles */
+    .loading-placeholder {
+        opacity: 0.6;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 0.3; }
+    }
+
+    /* Ensure consistent spacing and prevent jumps */
+    h1, h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Prevent any possible content shifting */
+    body, main {
+        overflow-x: hidden;
+    }
+
+    /* Ensure stable image rendering */
+    .responsive-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        /* Prevent any layout shift during load */
+        aspect-ratio: 4/3;
+        object-fit: cover;
+    }
+
+    /* Force content to render in order */
+    section, h2, div {
+        contain: layout style;
+    }
+
+    /* Prevent any floating or positioning issues */
+    * {
+        box-sizing: border-box;
     }
 </style>
 

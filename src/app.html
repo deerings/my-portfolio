@@ -4,8 +4,72 @@
 		%sveltekit.head%
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="preload" href="%sveltekit.assets%/images/GB_chiefs_shrunk.jpg" as="image" />
 		<script src="%sveltekit.assets%/global.js" type="module"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<!-- Critical CSS to prevent any layout shifts -->
+		<style>
+			/* Prevent any flash or layout shift */
+			html, body {
+				margin: 0;
+				padding: 0;
+				overflow-x: hidden;
+			}
+			
+			/* Apply main layout immediately to prevent left-to-center flash */
+			body {
+				font: 100%/1.5 system-ui;
+				max-width: 100ch;
+				margin-inline: auto;
+				padding: 1rem;
+				padding-top: 3rem;
+				position: relative;
+			}
+			
+			/* Apply navigation layout immediately */
+			nav {
+				display: flex;
+				margin-bottom: 1rem;
+				border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+				position: relative;
+				box-sizing: border-box;
+				z-index: 100;
+			}
+			
+			nav a {
+				flex: 1;
+				padding: 0.4em;
+				text-decoration: none;
+				color: inherit;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
+				box-sizing: border-box;
+			}
+			
+			/* Ensure images don't cause layout shifts */
+			img {
+				max-width: 100%;
+				height: auto;
+				display: block;
+			}
+			
+			/* Center text content immediately */
+			p[style*="text-align: center"] {
+				text-align: center !important;
+			}
+			
+			/* Force stable layout */
+			* {
+				box-sizing: border-box;
+			}
+			
+			/* Prevent content jumping */
+			section, main, div {
+				contain: layout;
+			}
+		</style>
 		
 		<!-- Prevent flash of unstyled content by applying theme immediately -->
 		<script>
