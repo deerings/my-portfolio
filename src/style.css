@@ -123,20 +123,16 @@ html.theme-dark {
 /* Projects Layout - Responsive Grid */
 .projects {
     display: grid;  /* Make .projects a grid container */
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));  /* Flexible columns */
-    gap: 1em;  /* Space between each project card */
+    grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));  /* Use auto-fit for better space usage */
+    gap: 1.25em;  /* Balanced gap */
     margin-top: 2em; /* Optional: Add space above the grid */
 }
   
   /* Each project card */
 .projects article {
-    display: grid;  /* Grid layout inside each project card */
-    grid-template-rows: subgrid;  /* Align content to parent grid's rows */
-    grid-row: span 3;  /* Each project card spans 3 rows */
     background-color: var(--color-bg-secondary);
     border: 1px solid var(--color-border-light);
     border-radius: 8px;
-    padding: 1rem;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
