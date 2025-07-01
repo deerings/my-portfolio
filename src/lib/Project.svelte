@@ -136,11 +136,6 @@
     color: var(--color-text-primary);
     margin: 0;
     line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
   }
 
   .description-container {
