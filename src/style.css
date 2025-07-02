@@ -93,6 +93,7 @@ html.theme-dark {
     padding: 0.25rem 0.5rem;
     z-index: 200;
     box-shadow: 0 2px 8px var(--color-shadow);
+    transition: opacity 0.2s ease-in-out;
 }
 
 /* Responsive positioning for smaller screens */

@@ -27,11 +27,81 @@
 				position: relative;
 			}
 			
+			/* Critical theme colors - apply immediately to prevent flash */
+			:root {
+				--color-accent: oklch(65.635% 0.16316 275.144);
+				--color-accent-light: oklch(65% 95% 5%);
+				
+				/* Base light theme colors (always applied first) */
+				--color-text-primary: oklch(25% 0% 0);
+				--color-text-secondary: oklch(45% 0% 0);
+				--color-text-muted: oklch(55% 0% 0);
+				
+				--color-bg-primary: oklch(98% 0% 0);
+				--color-bg-secondary: oklch(96% 0% 0);
+				--color-bg-hover: oklch(94% 0% 0);
+				
+				--color-border-light: oklch(88% 0% 0);
+				--color-border-medium: oklch(78% 0% 0);
+				
+				--color-focus-ring: oklch(65.635% 0.16316 275.144 / 0.3);
+			}
+			
+			/* Force light mode immediately */
+			html.theme-light {
+				--color-text-primary: oklch(25% 0% 0) !important;
+				--color-text-secondary: oklch(45% 0% 0) !important;
+				--color-text-muted: oklch(55% 0% 0) !important;
+				
+				--color-bg-primary: oklch(98% 0% 0) !important;
+				--color-bg-secondary: oklch(96% 0% 0) !important;
+				--color-bg-hover: oklch(94% 0% 0) !important;
+				
+				--color-border-light: oklch(88% 0% 0) !important;
+				--color-border-medium: oklch(78% 0% 0) !important;
+				
+				--color-focus-ring: oklch(65.635% 0.16316 275.144 / 0.3) !important;
+			}
+			
+			/* Force dark mode immediately */
+			html.theme-dark {
+				--color-text-primary: oklch(95% 0% 0) !important;
+				--color-text-secondary: oklch(75% 0% 0) !important;
+				--color-text-muted: oklch(60% 0% 0) !important;
+				
+				--color-bg-primary: oklch(15% 0% 0) !important;
+				--color-bg-secondary: oklch(20% 0% 0) !important;
+				--color-bg-hover: oklch(25% 0% 0) !important;
+				
+				--color-border-light: oklch(30% 0% 0) !important;
+				--color-border-medium: oklch(40% 0% 0) !important;
+				
+				--color-focus-ring: oklch(65.635% 0.16316 275.144 / 0.4) !important;
+			}
+			
+			/* Auto theme with dark preference */
+			@media (prefers-color-scheme: dark) {
+				html.theme-auto {
+					--color-text-primary: oklch(95% 0% 0);
+					--color-text-secondary: oklch(75% 0% 0);
+					--color-text-muted: oklch(60% 0% 0);
+					
+					--color-bg-primary: oklch(15% 0% 0);
+					--color-bg-secondary: oklch(20% 0% 0);
+					--color-bg-hover: oklch(25% 0% 0);
+					
+					--color-border-light: oklch(30% 0% 0);
+					--color-border-medium: oklch(40% 0% 0);
+					
+					--color-focus-ring: oklch(65.635% 0.16316 275.144 / 0.4);
+				}
+			}
+			
 			/* Apply navigation layout immediately */
 			nav {
 				display: flex;
 				margin-bottom: 1rem;
-				border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+				border-bottom: 2px solid var(--color-border-light);
 				position: relative;
 				box-sizing: border-box;
 				z-index: 100;
@@ -78,6 +148,9 @@
 					const savedScheme = localStorage.getItem('colorScheme') || 'light dark';
 					const html = document.documentElement;
 					
+					// Store the theme globally so Svelte can access it
+					window.__INITIAL_COLOR_SCHEME__ = savedScheme;
+					
 					// Remove any existing theme classes
 					html.classList.remove('theme-light', 'theme-dark', 'theme-auto');
 					
@@ -95,6 +168,7 @@
 				} catch (e) {
 					// Fallback if localStorage isn't available
 					document.documentElement.classList.add('theme-auto');
+					window.__INITIAL_COLOR_SCHEME__ = 'light dark';
 				}
 			})();
 		</script>

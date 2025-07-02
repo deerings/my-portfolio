@@ -6,11 +6,26 @@
 
   const basePath = '/my-portfolio';
   
-  // Initialize with the value that should already be applied by app.html
-  let colorScheme = 'light dark';
+  // Theme switcher state - initialize with correct value from the start
+  let colorScheme = 'light dark'; // Default fallback only if nothing is found
+  let selectElement; // Reference to the select element
 
-  // Ensure localStorage is available in the client
+  // Check if localStorage is available
   const localStorageAvailable = typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
+
+  // Initialize colorScheme immediately and synchronously if in browser
+  if (typeof window !== 'undefined') {
+      // First try the global variable set by app.html - this should always be correct
+      if (window.__INITIAL_COLOR_SCHEME__) {
+          colorScheme = window.__INITIAL_COLOR_SCHEME__;
+      } else if (localStorageAvailable) {
+          // Fallback to reading localStorage directly
+          const storedScheme = localStorage.getItem('colorScheme');
+          if (storedScheme) {
+              colorScheme = storedScheme;
+          }
+      }
+  }
 
   // Apply and save the color scheme
   function setColorScheme(scheme) {
@@ -31,18 +46,16 @@
           document.documentElement.style.setProperty('color-scheme', scheme);
           
           if (localStorageAvailable) {
-              globalThis.localStorage.setItem('colorScheme', scheme);
+              localStorage.setItem('colorScheme', scheme);
           }
       }
   }
 
   // Apply the initial color scheme on page load
   onMount(() => {
-      // Sync with what's already in localStorage (set by app.html)
-      if (localStorageAvailable) {
-          const storedScheme = globalThis.localStorage?.getItem('colorScheme') || 'light dark';
-          colorScheme = storedScheme;
-          // Don't call setColorScheme here since app.html already applied it
+      // Verify that our pre-selected option is correct
+      if (selectElement && selectElement.value !== colorScheme) {
+          selectElement.value = colorScheme;
       }
       
       // Enable smooth transitions after initial load to prevent flash
@@ -58,13 +71,13 @@
   }
 </script>
 
-<!-- Color scheme selector with bind:value to colorScheme -->
+<!-- Color scheme selector - always visible with correct initial value -->
 <label class="color-scheme">
   Theme:
-  <select bind:value={colorScheme} on:change={handleChange} aria-label="Select color scheme">
-      <option value="light dark">Automatic</option>
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
+  <select bind:this={selectElement} on:change={handleChange} aria-label="Select color scheme">
+      <option value="light dark" selected={colorScheme === 'light dark'}>Automatic</option>
+      <option value="light" selected={colorScheme === 'light'}>Light</option>
+      <option value="dark" selected={colorScheme === 'dark'}>Dark</option>
   </select>
 </label>
 
