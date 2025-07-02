@@ -26,50 +26,52 @@
     <title>{data.title}</title>
 </svelte:head>
 
-<h1>Home</h1>
-<p>Hi, I'm Sean. <br>That's me in the green shirt (aboard the USS Green Bay in Sydney, Australia during Exercise Talisman Sabre 2023).<br> 
-    I'm part of Sleep, Tactical Efficiency, and Endurance Laboratory (STEEL) at Naval Health Research Center in Point Loma, CA. <br>
-    I mainly work with active-duty Navy, measuring sleep in shipboard environments.<br><br>
-    When I'm not working, I enjoy camping, ice hockey, music, sailing, and cooking (just to name a few things).
-</p>
-<p style="text-align: center;">
-    <img src="images/GB_chiefs_shrunk.jpg" 
-         alt="Me aboard the USS Green Bay during a data collection event in Australia." 
-         class="responsive-image"
-         width="800"
-         height="600"
-         style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
-</p>
+<main>
+    <h1>Home</h1>
+    <p>Hi, I'm Sean. <br>That's me in the green shirt (aboard the USS Green Bay in Sydney, Australia during Exercise Talisman Sabre 2023).<br> 
+        I'm part of Sleep, Tactical Efficiency, and Endurance Laboratory (STEEL) at Naval Health Research Center in Point Loma, CA. <br>
+        I mainly work with active-duty Navy, measuring sleep in shipboard environments.<br><br>
+        When I'm not working, I enjoy camping, ice hockey, music, sailing, and cooking (just to name a few things).
+    </p>
+    <p style="text-align: center;">
+        <img src="images/GB_chiefs_shrunk.jpg" 
+             alt="Me aboard the USS Green Bay during a data collection event in Australia." 
+             class="responsive-image"
+             width="800"
+             height="600"
+             style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+    </p>
 
-{#if userData}
-<section>
-    <h2>My Github Stats</h2>
-    <dl class="profile-stats">
-        <dt>FOLLOWERS</dt>
-        <dd>{userData.followers}</dd>
-        <dt>FOLLOWING</dt>
-        <dd>{userData.following}</dd>
-        <dt>PUBLIC REPOSITORIES</dt>
-        <dd>{userData.public_repos}</dd>
-        <dt>PUBLIC GISTS</dt>
-        <dd>{userData.public_gists}</dd>
-    </dl>
-</section>
-{:else}
-    <section class="github-stats-loading">
+    {#if userData}
+    <section>
         <h2>My Github Stats</h2>
         <dl class="profile-stats">
             <dt>FOLLOWERS</dt>
-            <dd class="loading-placeholder">•••</dd>
+            <dd>{userData.followers}</dd>
             <dt>FOLLOWING</dt>
-            <dd class="loading-placeholder">•••</dd>
+            <dd>{userData.following}</dd>
             <dt>PUBLIC REPOSITORIES</dt>
-            <dd class="loading-placeholder">•••</dd>
+            <dd>{userData.public_repos}</dd>
             <dt>PUBLIC GISTS</dt>
-            <dd class="loading-placeholder">•••</dd>
+            <dd>{userData.public_gists}</dd>
         </dl>
     </section>
-{/if}
+    {:else}
+        <section class="github-stats-loading">
+            <h2>My Github Stats</h2>
+            <dl class="profile-stats">
+                <dt>FOLLOWERS</dt>
+                <dd class="loading-placeholder">•••</dd>
+                <dt>FOLLOWING</dt>
+                <dd class="loading-placeholder">•••</dd>
+                <dt>PUBLIC REPOSITORIES</dt>
+                <dd class="loading-placeholder">•••</dd>
+                <dt>PUBLIC GISTS</dt>
+                <dd class="loading-placeholder">•••</dd>
+            </dl>
+        </section>
+    {/if}
+</main>
 
 <style>
     /* Prevent layout shifts */
@@ -115,7 +117,7 @@
     }
 
     /* Prevent any possible content shifting */
-    body, main {
+    main {
         overflow-x: hidden;
     }
 
