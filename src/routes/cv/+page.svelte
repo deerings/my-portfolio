@@ -141,5 +141,10 @@
               <h3>Research Associate / IT Specialist – American Sleep Apnea Association (Contractor)</h3>
               <p><strong><time datetime="2016-03">Mar. 2016</time> – <time datetime="2019-10">Oct. 2019</time></strong><br>Washington, DC (Remote)</p>
           </article>
+
+          <article>
+              <h3>Research Associate – Advanced Brain Monitoring, Inc.</h3>
+              <p><strong><time datetime="2013-05">May. 2013</time> – <time datetime="2014-04">Apr. 2014</time></strong><br>Carlsbad, CA</p>
+          </article>
       </section>
   </main>
