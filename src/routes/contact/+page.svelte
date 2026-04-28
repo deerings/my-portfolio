@@ -79,13 +79,6 @@
       <span class="contact-link">View Digital Business Card</span>
       <p>Quick contact info and social links.</p>
     </a>
-
-    <a href="https://github.com/deerings" target="_blank" class="contact-card">
-      <div class="contact-icon">🐙</div>
-      <h3>GitHub</h3>
-      <span class="contact-link">View Projects</span>
-      <p>Code repositories and open source contributions.</p>
-    </a>
   </div>
 
   <div class="contact-info">
