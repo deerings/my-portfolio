@@ -110,8 +110,13 @@
         50% { opacity: 0.3; }
     }
 
-    /* Ensure consistent spacing and prevent jumps */
-    h1, h2 {
+    /* Keep the Home heading flush with the nav */
+    h1 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
         margin-top: 2rem;
         margin-bottom: 1rem;
     }
