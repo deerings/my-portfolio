@@ -122,9 +122,14 @@
     
       <section class="cv-section">
           <h2>Work Experience</h2>
+        <article>
+            <h3>Data Scientist – Sleep, Tactical Efficiency, and Endurance Laboratory - Naval Health Research Center, Warfighter Performance Department (Contractor)</h3>
+            <p><strong><time datetime="2026-02">Feb. 2026</time> – <span class="present">present</span></strong><br>Point Loma, CA</p>
+        </article>
+
           <article>
             <h3>Research Associate – Sleep, Tactical Efficiency, and Endurance Laboratory - Naval Health Research Center, Warfighter Performance Department (Contractor)</h3>
-            <p><strong><time datetime="2021-12">Dec. 2021</time> – <span class="present">present</span></strong><br>Point Loma, CA</p>
+            <p><strong><time datetime="2021-12">Dec. 2021</time> – <time datetime="2026-01">Jan. 2026</time></strong><br>Point Loma, CA</p>
         </article>
 
           <article>
